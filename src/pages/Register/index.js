@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Creators as RegisterActions } from '~/store/ducks/register';
 
 import {
   ImageBackground,
@@ -22,12 +25,22 @@ class Register extends Component {
     }).isRequired,
   };
 
+  state = { name: '', email: '', password: '' };
+
   goToAuthentication = () => {
     const { navigation } = this.props;
     navigation.navigate('Auth');
   };
 
+  register = () => {
+    const { name, email, password } = this.state;
+    const { registerRequest } = this.props;
+
+    registerRequest({ name, email, password });
+  };
+
   render() {
+    const { name, email, password } = this.state;
     return (
       <ImageBackground source={BackgroundLogin}>
         <Container>
@@ -35,8 +48,16 @@ class Register extends Component {
             <Logo source={ImageLogo} />
           </ContentLogo>
           <ContentForm>
-            <Input autoCapitalize="none" autoCorrect={false} placeholder="Nome completo" />
             <Input
+              value={name}
+              onChangeText={text => this.setState({ name: text })}
+              autoCapitalize="none"
+              autoCorrect={false}
+              placeholder="Nome completo"
+            />
+            <Input
+              value={email}
+              onChangeText={text => this.setState({ email: text })}
               autoCapitalize="none"
               autoCorrect={false}
               placeholder="Seu email"
@@ -44,12 +65,14 @@ class Register extends Component {
               keyboardType="email-address"
             />
             <Input
+              value={password}
+              onChangeText={text => this.setState({ password: text })}
               autoCapitalize="none"
               autoCorrect={false}
               placeholder="Senha secreta"
               secureTextEntry
             />
-            <Button>
+            <Button onPress={this.register}>
               <Text>Criar Conta</Text>
             </Button>
             <LinkText onPress={this.goToAuthentication}>
@@ -62,4 +85,13 @@ class Register extends Component {
   }
 }
 
-export default Register;
+const mapStateToProps = state => ({
+  register: state.register,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators(RegisterActions, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Register);
