@@ -35,8 +35,18 @@ class Auth extends Component {
             <Logo source={ImageLogo} />
           </ContentLogo>
           <ContentForm>
-            <Input autoCapitalize="none" autoCorrect={false} placeholder="Seu email" />
-            <Input autoCapitalize="none" autoCorrect={false} placeholder="Sua senha" />
+            <Input
+              autoCapitalize="none"
+              autoCorrect={false}
+              placeholder="Seu email"
+              keyboardType="email-address"
+            />
+            <Input
+              autoCapitalize="none"
+              autoCorrect={false}
+              placeholder="Sua senha"
+              secureTextEntry
+            />
             <Button>
               <Text>Entrar</Text>
             </Button>

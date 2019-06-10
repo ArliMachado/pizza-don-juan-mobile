@@ -36,8 +36,19 @@ class Register extends Component {
           </ContentLogo>
           <ContentForm>
             <Input autoCapitalize="none" autoCorrect={false} placeholder="Nome completo" />
-            <Input autoCapitalize="none" autoCorrect={false} placeholder="Seu email" />
-            <Input autoCapitalize="none" autoCorrect={false} placeholder="Senha secreta" />
+            <Input
+              autoCapitalize="none"
+              autoCorrect={false}
+              placeholder="Seu email"
+              autoCompleteType="email"
+              keyboardType="email-address"
+            />
+            <Input
+              autoCapitalize="none"
+              autoCorrect={false}
+              placeholder="Senha secreta"
+              secureTextEntry
+            />
             <Button>
               <Text>Criar Conta</Text>
             </Button>
