@@ -15,7 +15,7 @@ import {
 import BackgroundLogin from '~/assets/background_login.png';
 import ImageLogo from '~/assets/logo.png';
 
-class LoginRegister extends Component {
+class Register extends Component {
   static propTypes = {
     navigation: PropTypes.shape({
       navigate: PropTypes.func,
@@ -51,4 +51,4 @@ class LoginRegister extends Component {
   }
 }
 
-export default LoginRegister;
+export default Register;

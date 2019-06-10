@@ -24,7 +24,7 @@ class Auth extends Component {
 
   goToRegister = () => {
     const { navigation } = this.props;
-    navigation.navigate('LoginRegister');
+    navigation.navigate('Register');
   };
 
   render() {
