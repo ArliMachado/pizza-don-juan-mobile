@@ -6,6 +6,7 @@ export default {
   dark: '#666',
   darker: '#333',
   black: '#000',
+  red: '#E5293E',
 
   primary: '#7A91CA',
   secundary: '#444A5A',
@@ -13,6 +14,6 @@ export default {
   danger: '#E37a7a',
 
   transparent: 'transparent',
-  darkTransparent: 'rgba(0,0,0,0.6)',
+  darkTransparent: 'rgba(0,0,0,0.5)',
   whiteTransparent: 'rgba(255, 255, 255, 0.3)',
 };
