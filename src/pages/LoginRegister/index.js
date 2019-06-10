@@ -14,10 +14,10 @@ import {
 import BackgroundLogin from '~/assets/background_login.png';
 import ImageLogo from '~/assets/logo.png';
 
-class Login extends Component {
-  goToRegister = () => {
+class LoginRegister extends Component {
+  goToAuthentication = () => {
     const { navigation } = this.props;
-    navigation.navigate('LoginRegister');
+    navigation.navigate('Login');
   };
 
   render() {
@@ -28,13 +28,14 @@ class Login extends Component {
             <Logo source={ImageLogo} />
           </ContentLogo>
           <ContentForm>
+            <Input autoCapitalize="none" autoCorrect={false} placeholder="Nome completo" />
             <Input autoCapitalize="none" autoCorrect={false} placeholder="Seu email" />
-            <Input autoCapitalize="none" autoCorrect={false} placeholder="Sua senha" />
+            <Input autoCapitalize="none" autoCorrect={false} placeholder="Senha secreta" />
             <Button>
-              <Text>Entrar</Text>
+              <Text>Criar Conta</Text>
             </Button>
-            <LinkText onPress={this.goToRegister}>
-              <Text>Criar conta gratuita</Text>
+            <LinkText onPress={this.goToAuthentication}>
+              <Text>Já tenho login</Text>
             </LinkText>
           </ContentForm>
         </Container>
@@ -43,4 +44,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default LoginRegister;
