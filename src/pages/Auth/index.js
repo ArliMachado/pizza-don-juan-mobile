@@ -15,7 +15,7 @@ import {
 import BackgroundLogin from '~/assets/background_login.png';
 import ImageLogo from '~/assets/logo.png';
 
-class Login extends Component {
+class Auth extends Component {
   static propTypes = {
     navigation: PropTypes.shape({
       navigate: PropTypes.func,
@@ -50,4 +50,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Auth;

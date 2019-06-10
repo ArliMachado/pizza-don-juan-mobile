@@ -24,7 +24,7 @@ class LoginRegister extends Component {
 
   goToAuthentication = () => {
     const { navigation } = this.props;
-    navigation.navigate('Login');
+    navigation.navigate('Auth');
   };
 
   render() {
