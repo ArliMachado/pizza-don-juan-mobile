@@ -1,9 +1,12 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+
+import { ImageBackground } from './styles';
+import BackgroundLogin from '~/assets/background_login.png';
 
 const Login = () => (
   <View>
-    <Text>Teste login</Text>
+    <ImageBackground source={BackgroundLogin} />
   </View>
 );
 
