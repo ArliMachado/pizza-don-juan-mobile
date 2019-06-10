@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import {
   ImageBackground,
@@ -15,6 +16,12 @@ import BackgroundLogin from '~/assets/background_login.png';
 import ImageLogo from '~/assets/logo.png';
 
 class LoginRegister extends Component {
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func,
+    }).isRequired,
+  };
+
   goToAuthentication = () => {
     const { navigation } = this.props;
     navigation.navigate('Login');
