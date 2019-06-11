@@ -25,7 +25,7 @@ class Register extends Component {
     }).isRequired,
   };
 
-  state = { name: '', email: '', password: '' };
+  state = { username: '', email: '', password: '' };
 
   goToAuthentication = () => {
     const { navigation } = this.props;
@@ -33,14 +33,14 @@ class Register extends Component {
   };
 
   register = () => {
-    const { name, email, password } = this.state;
+    const { username, email, password } = this.state;
     const { registerRequest } = this.props;
 
-    registerRequest({ name, email, password });
+    registerRequest({ username, email, password });
   };
 
   render() {
-    const { name, email, password } = this.state;
+    const { username, email, password } = this.state;
     return (
       <ImageBackground source={BackgroundLogin}>
         <Container>
@@ -49,8 +49,8 @@ class Register extends Component {
           </ContentLogo>
           <ContentForm>
             <Input
-              value={name}
-              onChangeText={text => this.setState({ name: text })}
+              value={username}
+              onChangeText={text => this.setState({ username: text })}
               autoCapitalize="none"
               autoCorrect={false}
               placeholder="Nome completo"
