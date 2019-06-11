@@ -15,14 +15,18 @@ export const Types = {
 const INITIAL_STATE = {
   user: {},
   loading: false,
-  error: '',
+  error: false,
 };
 
 export default function register(state = INITIAL_STATE, action) {
   switch (action.Types) {
     case Types.REQUEST:
       return { ...state, loading: true };
+    case Types.SUCCESS:
+      return { ...state, loading: false };
 
+    case Types.FAILURE:
+      return { ...state, loading: false, error: action.payload.error };
     default:
       return state;
   }
