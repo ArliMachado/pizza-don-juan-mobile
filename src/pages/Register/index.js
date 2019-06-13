@@ -23,13 +23,14 @@ class Register extends Component {
     navigation: PropTypes.shape({
       navigate: PropTypes.func,
     }).isRequired,
+    registerRequest: PropTypes.func.isRequired,
   };
 
   state = { username: '', email: '', password: '' };
 
   goToAuthentication = () => {
     const { navigation } = this.props;
-    navigation.navigate('Auth');
+    navigation.navigate('SignIn');
   };
 
   register = () => {

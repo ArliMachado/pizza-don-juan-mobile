@@ -24,6 +24,10 @@ class Auth extends Component {
     navigation: PropTypes.shape({
       navigate: PropTypes.func,
     }).isRequired,
+    authRequest: PropTypes.func.isRequired,
+    auth: PropTypes.shape({
+      loading: PropTypes.bool,
+    }).isRequired,
   };
 
   state = {
@@ -33,7 +37,7 @@ class Auth extends Component {
 
   goToRegister = () => {
     const { navigation } = this.props;
-    navigation.navigate('Register');
+    navigation.navigate('SignUp');
   };
 
   signedIn = () => {
