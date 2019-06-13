@@ -13,7 +13,7 @@ export function* addUser(action) {
 
     yield put(RegisterAction.registerSuccess());
 
-    navigate('Auth');
+    navigate('SignIn');
   } catch (err) {
     console.tron.log(err);
   }
