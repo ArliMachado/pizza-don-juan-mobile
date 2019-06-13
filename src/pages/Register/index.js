@@ -26,7 +26,12 @@ class Register extends Component {
     registerRequest: PropTypes.func.isRequired,
   };
 
-  state = { username: '', email: '', password: '' };
+  state = {
+    username: '',
+    email: '',
+    password: '',
+    passwordConfirm: '',
+  };
 
   goToAuthentication = () => {
     const { navigation } = this.props;
@@ -34,14 +39,23 @@ class Register extends Component {
   };
 
   register = () => {
-    const { username, email, password } = this.state;
+    const {
+      username, email, password, passwordConfirm,
+    } = this.state;
     const { registerRequest } = this.props;
 
-    registerRequest({ username, email, password });
+    registerRequest({
+      username,
+      email,
+      password,
+      password_confirmation: passwordConfirm,
+    });
   };
 
   render() {
-    const { username, email, password } = this.state;
+    const {
+      username, email, password, passwordConfirm,
+    } = this.state;
     return (
       <ImageBackground source={BackgroundLogin}>
         <Container>
@@ -71,6 +85,14 @@ class Register extends Component {
               autoCapitalize="none"
               autoCorrect={false}
               placeholder="Senha secreta"
+              secureTextEntry
+            />
+            <Input
+              value={passwordConfirm}
+              onChangeText={text => this.setState({ passwordConfirm: text })}
+              autoCapitalize="none"
+              autoCorrect={false}
+              placeholder="Confirme a senha"
               secureTextEntry
             />
             <Button onPress={this.register}>
