@@ -2,6 +2,7 @@ import { call, put } from 'redux-saga/effects';
 import api from '~/services/api';
 
 import { navigate } from '~/services/navigation';
+import { OnSignIn } from '~/services/auth';
 
 import { Creators as AuthActions } from '~/store/ducks/auth';
 
@@ -10,11 +11,11 @@ export function* login(action) {
     const { user } = action.payload;
 
     const { data } = yield call(api.post, '/sessions', user);
-    console.tron.log(`token: ${data.token}`);
+    OnSignIn(data.token);
 
     yield put(AuthActions.authSuccess());
 
-    // navigate('Auth');
+    navigate('Menu');
   } catch (err) {
     yield put(AuthActions.authFailure());
   }
