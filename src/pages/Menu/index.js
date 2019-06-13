@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import { View, Text } from 'react-native';
 
-// import { Container } from './styles';
+import { ImageBackground } from './styles';
 
-const Menu = () => (
-  <View>
-    <Text>Teste</Text>
-  </View>
-);
+import HeaderBackground from '~/assets/header-background.png';
+import Header from '~/components/Header';
+
+class Menu extends Component {
+  render() {
+    return (
+      <ImageBackground source={HeaderBackground}>
+        <Header title="Pizzaria Don Juan" />
+        <View>
+          <Text>Teste</Text>
+        </View>
+      </ImageBackground>
+    );
+  }
+}
 
 export default Menu;
