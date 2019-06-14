@@ -11,7 +11,7 @@ export const Container = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 22px;
+  padding: ${metrics.basePadding};
 `;
 
 export const Title = styled.Text`
@@ -31,11 +31,16 @@ export const History = styled(Icon)`
 
 // criar bag-container com as config abaixo
 
-export const Bag = styled(Icon)`
+export const BagContainer = styled.View`
   border-color: ${colors.primary};
   border-radius: ${metrics.screenWidth * 0.075};
   height: ${metrics.screenWidth * 0.15};
   width: ${metrics.screenWidth * 0.15};
+  background-color: ${colors.red};
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Bag = styled(Icon)`
   color: ${colors.white};
-  background-color: ${colors.danger};
 `;

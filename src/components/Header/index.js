@@ -1,10 +1,7 @@
 import React from 'react';
 
-import { View, Text, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-
 import {
-  Container, Title, StatusBar, History, Bag,
+  Container, Title, StatusBar, History, BagContainer, Bag,
 } from './styles';
 
 const Header = ({ title }) => (
@@ -12,7 +9,9 @@ const Header = ({ title }) => (
     <StatusBar />
     <History name="history" size={24} />
     <Title>{title}</Title>
-    <Bag name="shopping-bag" size={18} />
+    <BagContainer>
+      <Bag name="shopping-bag" size={18} />
+    </BagContainer>
   </Container>
 );
 
