@@ -6,7 +6,7 @@ if (__DEV__) {
   const hostHome = '192.168.1.107';
   const hostJob = '10.168.69.163';
 
-  const tron = Reactotron.configure({ host: hostJob })
+  const tron = Reactotron.configure({ host: hostHome })
     .useReactNative()
     .use(reactotronRedux())
     .use(reactotronSaga())
