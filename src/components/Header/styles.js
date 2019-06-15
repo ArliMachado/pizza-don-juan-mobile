@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export const Container = styled.View`
+export const Content = styled.View`
   height: ${54 + getStatusBarHeight()};
   padding-top: ${getStatusBarHeight()};
   background-color: ${colors.transparent};
