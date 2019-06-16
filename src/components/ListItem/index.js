@@ -7,6 +7,9 @@ import {
   ProductInfo,
   ProductTitle,
   ProductDescription,
+  EstimativeTimeContent,
+  EstimativeTime,
+  IconTime,
 } from './styles';
 
 const ListTypes = ({ data }) => (
@@ -18,6 +21,10 @@ const ListTypes = ({ data }) => (
     <ProductInfo>
       <ProductTitle numberOfLines={1}>{data.title}</ProductTitle>
       <ProductDescription>{data.description}</ProductDescription>
+      <EstimativeTimeContent>
+        <IconTime name="clock-o" />
+        <EstimativeTime>{data.estimated_time}</EstimativeTime>
+      </EstimativeTimeContent>
     </ProductInfo>
   </Container>
 );

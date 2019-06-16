@@ -29,8 +29,6 @@ export const History = styled(Icon)`
   background-color: ${colors.transparent};
 `;
 
-// criar bag-container com as config abaixo
-
 export const BagContainer = styled.View`
   border-color: ${colors.primary};
   border-radius: ${metrics.screenWidth * 0.075};
