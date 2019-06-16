@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ActivityIndicator, StatusBar, View } from 'react-native';
 import { isSignedIn, onSignOut } from '~/services/auth';
 import { navigate } from '~/services/navigation';
+import { Container } from './styles';
 
 export default class AuthLoadingScreen extends Component {
   constructor(props) {
@@ -17,10 +18,10 @@ export default class AuthLoadingScreen extends Component {
 
   render() {
     return (
-      <View>
+      <Container>
         <ActivityIndicator />
         <StatusBar barStyle="default" />
-      </View>
+      </Container>
     );
   }
 }
