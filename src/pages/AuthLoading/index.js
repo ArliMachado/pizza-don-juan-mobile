@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, StatusBar, View } from 'react-native';
-import { isSignedIn, onSignOut } from '~/services/auth';
+import { ActivityIndicator, StatusBar } from 'react-native';
+import { isSignedIn } from '~/services/auth';
 import { navigate } from '~/services/navigation';
 import { Container } from './styles';
 
