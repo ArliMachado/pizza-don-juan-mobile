@@ -33,7 +33,7 @@ export const Input = styled.TextInput.attrs({
   background: ${colors.white};
   border-radius: ${metrics.baseRadius * 2};
   letter-spacing: 0;
-  padding: 0 ${metrics.basePadding};
+  padding: 0 ${metrics.basePadding}px;
   height: 52px;
   font-size: 16px;
   color: ${colors.darker};

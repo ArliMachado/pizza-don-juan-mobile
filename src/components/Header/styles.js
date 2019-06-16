@@ -11,7 +11,7 @@ export const Content = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: ${metrics.basePadding};
+  padding: ${metrics.basePadding}px;
 `;
 
 export const Title = styled.Text`

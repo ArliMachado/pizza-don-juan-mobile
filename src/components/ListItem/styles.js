@@ -8,9 +8,8 @@ export const Container = styled.View`
   flex-direction: row;
   flex-wrap: wrap;
   background-color: ${colors.white};
-  padding: 0 10px;
-  margin-top: ${metrics.baseMargin / 2};
-  margin: 12px;
+  padding: 0 ${metrics.basePadding}px;
+  margin: ${metrics.baseMargin}px ${metrics.baseMargin * 2}px;
   border-radius: ${metrics.baseRadius * 2};
   height: 85px;
   border-width: 0.5;
