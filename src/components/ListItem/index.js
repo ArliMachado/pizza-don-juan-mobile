@@ -23,7 +23,11 @@ const ListTypes = ({ data }) => (
       <ProductDescription>{data.description}</ProductDescription>
       <EstimativeTimeContent>
         <IconTime name="clock-o" />
-        <EstimativeTime>{data.estimated_time}</EstimativeTime>
+        <EstimativeTime>
+          {data.estimated_time}
+          {' '}
+mins
+        </EstimativeTime>
       </EstimativeTimeContent>
     </ProductInfo>
   </Container>
