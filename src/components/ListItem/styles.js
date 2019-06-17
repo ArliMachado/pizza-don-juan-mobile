@@ -2,54 +2,26 @@ import { colors, metrics } from '~/styles';
 
 import styled from 'styled-components/native';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
-
 export const Container = styled.View`
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex: 1;
   background-color: ${colors.white};
-  padding: 0 ${metrics.basePadding}px;
-  margin: ${metrics.baseMargin}px ${metrics.baseMargin * 2}px;
-  border-radius: ${metrics.baseRadius * 2};
-  height: 85px;
-  border-width: 0.5;
-  border-color: ${colors.lighter};
+  border-radius: ${metrics.baseRadius};
+  padding: ${metrics.basePadding}px;
+  margin-top: ${metrics.baseMargin};
+  align-items: center;
+  max-width: ${(metrics.screenWidth - 60) / 2};
 `;
 
-export const ImageContent = styled.View`
-  margin-right: ${metrics.baseMargin};
-  justify-content: center;
+export const Title = styled.Text`
+  font-size: 14;
+  font-weight: bold;
+  color: ${colors.darker};
+  margin-top: ${metrics.baseMargin};
 `;
 
 export const Image = styled.Image`
   width: 70;
   height: 70;
 `;
-export const ProductInfo = styled.View`
-  flex: 1;
-  flex-direction: column;
-`;
-export const ProductTitle = styled.Text`
-  font-size: 14;
-  font-weight: bold;
-  margin-top: ${metrics.baseMargin / 2};
-  color: ${colors.darker};
-`;
-export const ProductDescription = styled.Text`
-  font-size: 12;
-  color: ${colors.regular};
-  margin-top: ${metrics.baseMargin / 2};
-`;
 
-export const EstimativeTimeContent = styled.View`
-  flex-direction: row;
-  margin-top: ${metrics.baseMargin / 2};
-`;
-export const IconTime = styled(Icon)`
-  color: ${colors.regular};
-`;
-export const EstimativeTime = styled.Text`
-  font-size: 10;
-  margin-left: ${metrics.baseMargin / 4};
-  color: ${colors.regular};
-`;
+// https://stackoverflow.com/questions/44608824/click-listener-in-flatlist

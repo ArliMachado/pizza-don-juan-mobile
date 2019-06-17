@@ -8,9 +8,9 @@ export function* getProductTypes() {
   try {
     const { id } = yield select(state => state.product.productSelected);
 
-    const response = yield call(api.get, `/product/${id}/types`);
+    const { data } = yield call(api.get, `/product/${id}/types`);
 
-    yield put(ProductTypeActions.productTypeSuccess(response));
+    yield put(ProductTypeActions.productTypeSuccess(data));
   } catch (err) {
     yield put(ProductTypeActions.productypeFailure());
   }

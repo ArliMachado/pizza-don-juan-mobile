@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import { Creators as ProductTypeActions } from '~/store/ducks/productType';
 import Container from '~/components/Container';
 import Header from '~/components/Header';
+import { Content } from './styles';
+import ListItem from '~/components/ListItem';
 
 class ProductTypes extends Component {
   static propTypes = {
@@ -26,9 +28,15 @@ class ProductTypes extends Component {
   };
 
   render() {
+    const { productTypes } = this.props;
+
     return (
       <Container>
         <Header title="Selecione um tipo" navigateTo={this.backToProducts} />
+        {productTypes.data.map(product => (
+          <ListItem key={product.id} title={product.title} uri={product.file.uri} />
+        ))}
+        <Content />
       </Container>
     );
   }
