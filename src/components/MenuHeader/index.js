@@ -4,7 +4,7 @@ import {
   Content, Title, StatusBar, History, BagContainer, Bag,
 } from './styles';
 
-const Header = ({ title }) => (
+const MenuHeader = ({ title }) => (
   <Content>
     <StatusBar />
     <History name="history" size={24} />
@@ -15,4 +15,4 @@ const Header = ({ title }) => (
   </Content>
 );
 
-export default Header;
+export default MenuHeader;

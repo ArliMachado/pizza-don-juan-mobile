@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { Creators as ProductActions } from '~/store/ducks/product';
 import { TouchableOpacity } from 'react-native';
 
-import Header from '~/components/Header';
+import MenuHeader from '~/components/MenuHeader';
 import ListItem from '~/components/ListItem';
 import Container from '~/components/Container';
 
@@ -20,7 +20,7 @@ class Menu extends Component {
     const { product, productSelected } = this.props;
     return (
       <Container>
-        <Header title="Pizzaria Don Juan" />
+        <MenuHeader title="Pizzaria Don Juan" />
         {product.data.map(item => (
           <TouchableOpacity key={item.id} onPress={() => productSelected(item)}>
             <ListItem data={item} />
