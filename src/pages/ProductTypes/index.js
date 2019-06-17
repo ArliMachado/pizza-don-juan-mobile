@@ -3,18 +3,22 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import { Types as ProductTypeActions } from '~/store/ducks/productType';
+import { Creators as ProductTypeActions } from '~/store/ducks/productType';
 import Container from '~/components/Container';
 import Header from '~/components/Header';
-
-// import { Container } from './styles';
 
 class ProductTypes extends Component {
   static propTypes = {
     navigation: PropTypes.shape({
       navigate: PropTypes.func,
     }).isRequired,
+    productTypeRequest: PropTypes.func.isRequired,
   };
+
+  componentDidMount() {
+    const { productTypeRequest } = this.props;
+    productTypeRequest();
+  }
 
   backToProducts = () => {
     const { navigation } = this.props;
