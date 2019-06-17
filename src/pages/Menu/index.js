@@ -7,7 +7,7 @@ import { Creators as ProductActions } from '~/store/ducks/product';
 import { TouchableOpacity } from 'react-native';
 
 import MenuHeader from '~/components/MenuHeader';
-import ListItem from '~/components/ListItem';
+import ProductList from './ProductList';
 import Container from '~/components/Container';
 
 class Menu extends Component {
@@ -23,7 +23,7 @@ class Menu extends Component {
         <MenuHeader title="Pizzaria Don Juan" />
         {product.data.map(item => (
           <TouchableOpacity key={item.id} onPress={() => productSelected(item)}>
-            <ListItem data={item} />
+            <ProductList data={item} />
           </TouchableOpacity>
         ))}
       </Container>
