@@ -24,10 +24,6 @@ export const Title = styled.Text`
   color: ${colors.white};
 `;
 
-export const StatusBar = styled.StatusBar.attrs({
-  backgroundColor: '#0b2031',
-})``;
-
 export const BackToPage = styled(Icon)`
   color: ${colors.white};
   background-color: ${colors.transparent};

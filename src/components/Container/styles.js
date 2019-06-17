@@ -11,3 +11,6 @@ export const ImageBackground = styled.ImageBackground`
   width: 100%;
   height: 25%;
 `;
+export const StatusBar = styled.StatusBar.attrs({
+  backgroundColor: '#0b2031',
+})``;

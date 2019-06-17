@@ -1,12 +1,11 @@
 import React from 'react';
 
 import {
-  Content, Title, StatusBar, History, BagContainer, Bag,
+  Content, Title, History, BagContainer, Bag,
 } from './styles';
 
 const MenuHeader = ({ title }) => (
   <Content>
-    <StatusBar />
     <History name="history" size={24} />
     <Title>{title}</Title>
     <BagContainer>

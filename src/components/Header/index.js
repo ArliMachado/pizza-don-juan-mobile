@@ -3,12 +3,11 @@ import { TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 
 import {
-  Content, ContentTitle, Title, StatusBar, BackToPage, TotalPrice,
+  Content, ContentTitle, Title, BackToPage, TotalPrice,
 } from './styles';
 
 const Header = ({ title, navigateTo, totalValue }) => (
   <Content>
-    <StatusBar />
     <TouchableOpacity onPress={navigateTo}>
       <ContentTitle>
         <BackToPage name="angle-left" size={24} />
