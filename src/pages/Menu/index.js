@@ -5,11 +5,9 @@ import { bindActionCreators } from 'redux';
 
 import { Creators as ProductActions } from '~/store/ducks/product';
 
-import { ImageBackground, Container } from './styles';
-
-import HeaderBackground from '~/assets/header-background.png';
 import Header from '~/components/Header';
 import ListItem from '~/components/ListItem';
+import Container from '~/components/Container';
 
 class Menu extends Component {
   componentWillMount() {
@@ -21,12 +19,10 @@ class Menu extends Component {
     const { product } = this.props;
     return (
       <Container>
-        <ImageBackground source={HeaderBackground} resizeMode="cover">
-          <Header title="Pizzaria Don Juan" />
-          {product.data.map(item => (
-            <ListItem key={item.id} data={item} />
-          ))}
-        </ImageBackground>
+        <Header title="Pizzaria Don Juan" />
+        {product.data.map(item => (
+          <ListItem key={item.id} data={item} />
+        ))}
       </Container>
     );
   }

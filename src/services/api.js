@@ -2,11 +2,11 @@ import axios from 'axios';
 import { AsyncStorage } from 'react-native';
 import { TOKEN_KEY, onSignOut } from './auth';
 
-const baseUrlHome = 'http://192.168.1.107:3333';
-// const baseUrlJob = 'http://10.168.69.163:3333';
+// const baseUrl = 'http://192.168.1.107:3333';
+const baseUrl = 'http://10.168.69.163:3333';
 
 const api = axios.create({
-  baseURL: baseUrlHome,
+  baseURL: baseUrl,
 });
 
 api.interceptors.request.use(async (config) => {
