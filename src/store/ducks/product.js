@@ -1,3 +1,5 @@
+import { navigate } from '~/services/navigation';
+
 /**
  * ACTION TYPES
  */
@@ -6,13 +8,14 @@ export const Types = {
   REQUEST: 'product/REQUEST',
   SUCCESS: 'product/SUCCESS',
   FAILURE: 'product/FAILURE',
+  SELECTED: 'product/SELECTED',
 };
 
 /**
  * Reducers
  */
 
-const INITIAL_STATE = { data: [], loading: false };
+const INITIAL_STATE = { productSelected: {}, data: [], loading: false };
 
 export default function product(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -22,6 +25,9 @@ export default function product(state = INITIAL_STATE, action) {
       return { ...state, data: action.payload.data, loading: false };
     case Types.FAILURE:
       return { ...state, loading: false };
+    case Types.SELECTED:
+      navigate('ProductTypes');
+      return { ...state, loading: false, productSelected: action.payload.data };
     default:
       return state;
   }
@@ -41,5 +47,9 @@ export const Creators = {
   }),
   productFailure: () => ({
     type: Types.FAILURE,
+  }),
+  productSelected: data => ({
+    type: Types.SELECTED,
+    payload: { data },
   }),
 };
