@@ -9,7 +9,7 @@ export const Content = styled.View`
 
 export const ImageBackground = styled.ImageBackground`
   width: 100%;
-  height: 25%;
+  height: 100%;
 `;
 export const StatusBar = styled.StatusBar.attrs({
   backgroundColor: '#0b2031',

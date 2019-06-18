@@ -6,22 +6,24 @@ export const Container = styled.View`
   flex: 1;
   background-color: ${colors.white};
   border-radius: ${metrics.baseRadius};
-  padding: ${metrics.basePadding}px;
+  /* padding: ${metrics.basePadding}px; */
   margin-top: ${metrics.baseMargin};
   align-items: center;
-  max-width: ${(metrics.screenWidth - 60) / 2};
+  margin: ${metrics.baseMargin}px ${metrics.baseMargin * 2}px;
 `;
 
 export const Title = styled.Text`
-  font-size: 14;
+  text-align: center;
+  font-size: 16;
   font-weight: bold;
   color: ${colors.darker};
-  margin-top: ${metrics.baseMargin};
+  margin-top: ${metrics.baseMargin / 2};
 `;
 
 export const Image = styled.Image`
-  width: 70;
-  height: 70;
+  width: 100;
+  height: 100;
+  /* TODO corrigit porcentagem */
 `;
 
 // https://stackoverflow.com/questions/44608824/click-listener-in-flatlist
