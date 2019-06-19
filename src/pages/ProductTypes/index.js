@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import { ScrollView } from 'react-native';
+import { ScrollView, TouchableOpacity } from 'react-native';
 
 import { Creators as ProductTypeActions } from '~/store/ducks/productType';
 import Container from '~/components/Container';
@@ -29,11 +29,13 @@ class ProductTypes extends Component {
   };
 
   renderList = () => {
-    const { productTypes } = this.props;
+    const { productTypes, producTypeSelected } = this.props;
     return (
       <Content>
         {productTypes.data.map(product => (
-          <ListItem key={product.id} title={product.title} uri={product.file.url} />
+          <TouchableOpacity key={product.id} onPress={() => producTypeSelected(product)}>
+            <ListItem title={product.title} uri={product.file.url} />
+          </TouchableOpacity>
         ))}
       </Content>
     );

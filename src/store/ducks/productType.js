@@ -6,12 +6,13 @@ export const Types = {
   REQUEST: 'productType/REQUEST',
   SUCCESS: 'productType/SUCCESS',
   FAILURE: 'productType/FAILURE',
+  SELECTED: 'productType/SELECTED',
 };
 
 /**
  * Reducers
  */
-const INITIAL_STATE = { data: [], loading: false };
+const INITIAL_STATE = { productTypeSelected: {}, data: [], loading: false };
 export default function productType(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.REQUEST:
@@ -20,6 +21,8 @@ export default function productType(state = INITIAL_STATE, action) {
       return { ...state, data: action.payload.data, loading: false };
     case Types.FAILURE:
       return { ...state };
+    case Types.SELECTED:
+      return { ...state, loading: false, productTypeSelected: action.payload.data };
     default:
       return state;
   }
@@ -37,7 +40,11 @@ export const Creators = {
     type: Types.SUCCESS,
     payload: { data },
   }),
-  productypeFailure: () => ({
+  producTypeFailure: () => ({
     type: Types.FAILURE,
+  }),
+  producTypeSelected: data => ({
+    type: Types.SELECTED,
+    payload: { data },
   }),
 };
