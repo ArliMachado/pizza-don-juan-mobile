@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { Creators as ProductActions } from '~/store/ducks/product';
-import { TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native';
+import { TouchableOpacity, ScrollView } from 'react-native';
 
 import MenuHeader from '~/components/MenuHeader';
 import ProductList from './ProductList';
