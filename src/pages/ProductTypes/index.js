@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
@@ -7,7 +7,7 @@ import { ScrollView } from 'react-native';
 import { Creators as ProductTypeActions } from '~/store/ducks/productType';
 import Container from '~/components/Container';
 import Header from '~/components/Header';
-import { Content } from './styles';
+import { Content, Loading } from './styles';
 import ListItem from '~/components/ListItem';
 
 class ProductTypes extends Component {
@@ -28,19 +28,24 @@ class ProductTypes extends Component {
     navigation.navigate('Menu');
   };
 
+  renderList = () => {
+    const { productTypes } = this.props;
+    return (
+      <Content>
+        {productTypes.data.map(product => (
+          <ListItem key={product.id} title={product.title} uri={product.file.url} />
+        ))}
+      </Content>
+    );
+  };
+
   render() {
     const { productTypes } = this.props;
 
     return (
       <Container>
         <Header title="Selecione um tipo" navigateTo={this.backToProducts} />
-        <ScrollView>
-          <Content>
-            {productTypes.data.map(product => (
-              <ListItem key={product.id} title={product.title} uri={product.file.url} />
-            ))}
-          </Content>
-        </ScrollView>
+        <ScrollView>{productTypes.loading ? <Loading /> : this.renderList()}</ScrollView>
       </Container>
     );
   }

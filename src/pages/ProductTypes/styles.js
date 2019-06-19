@@ -8,3 +8,6 @@ export const Content = styled.View`
   flex-wrap: wrap;
   justify-content: space-around;
 `;
+export const Loading = styled.ActivityIndicator`
+  margin-top: ${metrics.baseMargin * 2};
+`;
