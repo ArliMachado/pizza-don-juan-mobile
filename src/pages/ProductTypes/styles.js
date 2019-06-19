@@ -1,10 +1,10 @@
-import { metrics, colors } from '~/styles';
+import { metrics } from '~/styles';
 
 import styled from 'styled-components/native';
 
 export const Content = styled.View`
-  /* flex: 1; */
-  background-color: ${colors.transparent};
-  /* flex-direction: row;
-  flex-wrap: wrap; */
+  padding: 0 ${metrics.basePadding / 2}px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 `;

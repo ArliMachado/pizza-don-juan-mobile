@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import { FlatList } from 'react-native';
+import { ScrollView } from 'react-native';
 
 import { Creators as ProductTypeActions } from '~/store/ducks/productType';
 import Container from '~/components/Container';
@@ -28,36 +28,20 @@ class ProductTypes extends Component {
     navigation.navigate('Menu');
   };
 
-  renderListItem = ({ item }) => <ListItem title={item.title} uri={item.file.url} />;
-
-  renderList = () => {
-    const { productTypes } = this.props;
-    return (
-      <FlatList
-        data={productTypes.data}
-        keyExtractor={item => String(item.id)}
-        renderItem={this.renderListItem}
-        numColumns={2}
-        columnWrapperStyle={{ marginHorizontal: 20, justifyContent: 'space-between' }}
-      />
-    );
-  };
-
   render() {
-    // const { productTypes } = this.props;
+    const { productTypes } = this.props;
 
     return (
-      <Fragment>
-        <Container>
-          <Header title="Selecione um tipo" navigateTo={this.backToProducts} />
-          {/* <Content>
+      <Container>
+        <Header title="Selecione um tipo" navigateTo={this.backToProducts} />
+        <ScrollView>
+          <Content>
             {productTypes.data.map(product => (
-            <ListItem key={product.id} title={product.title} uri={product.file.url} />
-          ))}
-          </Content> */}
-          <Content>{this.renderList()}</Content>
-        </Container>
-      </Fragment>
+              <ListItem key={product.id} title={product.title} uri={product.file.url} />
+            ))}
+          </Content>
+        </ScrollView>
+      </Container>
     );
   }
 }
