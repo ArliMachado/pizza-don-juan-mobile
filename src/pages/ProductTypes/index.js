@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
@@ -16,6 +16,18 @@ class ProductTypes extends Component {
       navigate: PropTypes.func,
     }).isRequired,
     productTypeRequest: PropTypes.func.isRequired,
+    productTypes: PropTypes.shape({
+      data: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number,
+          title: PropTypes.string,
+          file: PropTypes.shape({
+            url: PropTypes.string,
+          }),
+        }),
+      ),
+    }).isRequired,
+    producTypeSelected: PropTypes.func.isRequired,
   };
 
   componentDidMount() {

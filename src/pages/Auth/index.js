@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { ActivityIndicator } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { Creators as AuthActions } from '~/store/ducks/auth';
 
@@ -15,6 +14,7 @@ import {
   Button,
   Text,
   LinkText,
+  Loading,
 } from './styles';
 import BackgroundLogin from '~/assets/background_login.png';
 import ImageLogo from '~/assets/logo.png';
@@ -74,7 +74,7 @@ class Auth extends Component {
               secureTextEntry
             />
             <Button onPress={this.signedIn}>
-              {auth.loading ? <ActivityIndicator size="small" color="#FFF" /> : <Text>Entrar</Text>}
+              {auth.loading ? <Loading /> : <Text>Entrar</Text>}
             </Button>
             <LinkText onPress={this.goToRegister}>
               <Text>Criar conta gratuita</Text>

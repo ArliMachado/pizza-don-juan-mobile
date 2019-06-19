@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   Container,
@@ -32,5 +33,16 @@ mins
     </ProductInfo>
   </Container>
 );
+
+ProductList.propTypes = {
+  data: PropTypes.shape({
+    file: PropTypes.shape({
+      url: PropTypes.string,
+    }),
+    title: PropTypes.string,
+    description: PropTypes.string,
+    estimated_time: PropTypes.number,
+  }).isRequired,
+};
 
 export default ProductList;

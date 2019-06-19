@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -13,6 +14,19 @@ import Container from '~/components/Container';
 import { Loading } from './styles';
 
 class Menu extends Component {
+  static propTypes = {
+    productRequest: PropTypes.func.isRequired,
+    product: PropTypes.shape({
+      data: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number,
+        }),
+      ),
+      loading: PropTypes.bool,
+    }).isRequired,
+    productSelected: PropTypes.func.isRequired,
+  };
+
   componentWillMount() {
     const { productRequest } = this.props;
     productRequest();

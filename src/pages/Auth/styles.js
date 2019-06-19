@@ -59,3 +59,8 @@ export const LinkText = styled.TouchableOpacity`
   justify-content: center;
   margin-top: ${metrics.baseMargin * 2};
 `;
+
+export const Loading = styled.ActivityIndicator`
+  color: ${colors.white};
+  size: small;
+`;
