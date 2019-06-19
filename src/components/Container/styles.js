@@ -1,4 +1,4 @@
-import { colors } from '~/styles';
+import { colors, metrics } from '~/styles';
 
 import styled from 'styled-components/native';
 
@@ -7,9 +7,10 @@ export const Content = styled.View`
   background-color: ${colors.lighter};
 `;
 
-export const ImageBackground = styled.ImageBackground`
-  width: 100%;
-  height: 100%;
+export const Image = styled.Image`
+  width: ${metrics.screenWidth};
+  height: 30%;
+  position: absolute;
 `;
 export const StatusBar = styled.StatusBar.attrs({
   backgroundColor: '#0b2031',
