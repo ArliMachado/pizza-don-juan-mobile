@@ -27,7 +27,7 @@ class ProductTypes extends Component {
         }),
       ),
     }).isRequired,
-    producTypeSelected: PropTypes.func.isRequired,
+    productTypeSelected: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
@@ -41,11 +41,11 @@ class ProductTypes extends Component {
   };
 
   renderList = () => {
-    const { productTypes, producTypeSelected } = this.props;
+    const { productTypes, productTypeSelected } = this.props;
     return (
       <Content>
         {productTypes.data.map(product => (
-          <TouchableOpacity key={product.id} onPress={() => producTypeSelected(product)}>
+          <TouchableOpacity key={product.id} onPress={() => productTypeSelected(product)}>
             <ListItem title={product.title} uri={product.file.url} />
           </TouchableOpacity>
         ))}
