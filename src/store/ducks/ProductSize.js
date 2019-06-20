@@ -1,20 +1,19 @@
-import { navigate } from '~/services/navigation';
 /**
  * Action Types
  */
 
 export const Types = {
-  REQUEST: 'productType/REQUEST',
-  SUCCESS: 'productType/SUCCESS',
-  FAILURE: 'productType/FAILURE',
-  SELECTED: 'productType/SELECTED',
+  REQUEST: 'productSize/REQUEST',
+  SUCCESS: 'productSize/SUCCESS',
+  FAILURE: 'productSize/FAILURE',
+  SELECTED: 'productSize/SELECTED',
 };
 
 /**
  * Reducers
  */
 const INITIAL_STATE = { productSelected: {}, data: [], loading: false };
-export default function productType(state = INITIAL_STATE, action) {
+export default function productSize(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.REQUEST:
       return { ...state, loading: true };
@@ -23,7 +22,6 @@ export default function productType(state = INITIAL_STATE, action) {
     case Types.FAILURE:
       return { ...state };
     case Types.SELECTED:
-      navigate('ProductSizes');
       return { ...state, loading: false, productSelected: action.payload.data };
     default:
       return state;
@@ -35,17 +33,17 @@ export default function productType(state = INITIAL_STATE, action) {
  */
 
 export const Creators = {
-  productTypeRequest: () => ({
+  productSizeRequest: () => ({
     type: Types.REQUEST,
   }),
-  productTypeSuccess: data => ({
+  productSizeSuccess: data => ({
     type: Types.SUCCESS,
     payload: { data },
   }),
-  producTypeFailure: () => ({
+  productSizeFailure: () => ({
     type: Types.FAILURE,
   }),
-  productTypeSelected: data => ({
+  productSizeSelected: data => ({
     type: Types.SELECTED,
     payload: { data },
   }),
