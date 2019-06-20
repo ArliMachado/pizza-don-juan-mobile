@@ -60,7 +60,7 @@ export const LinkText = styled.TouchableOpacity`
   margin-top: ${metrics.baseMargin * 2};
 `;
 
-export const Loading = styled.ActivityIndicator`
-  color: ${colors.white};
-  size: small;
-`;
+export const Loading = styled.ActivityIndicator.attrs({
+  size: 'small',
+  color: colors.white,
+})``;
