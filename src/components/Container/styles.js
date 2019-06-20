@@ -9,7 +9,7 @@ export const Content = styled.View`
 
 export const Image = styled.Image`
   width: ${metrics.screenWidth};
-  height: 30%;
+  height: 25%;
   position: absolute;
 `;
 export const StatusBar = styled.StatusBar.attrs({
