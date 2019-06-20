@@ -13,7 +13,7 @@ import Container from '~/components/Container';
 
 import { Loading } from './styles';
 
-class Menu extends Component {
+class Product extends Component {
   static propTypes = {
     productRequest: PropTypes.func.isRequired,
     product: PropTypes.shape({
@@ -66,4 +66,4 @@ const mapDispatchToProps = dispatch => bindActionCreators(ProductActions, dispat
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Menu);
+)(Product);

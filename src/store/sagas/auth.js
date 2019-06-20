@@ -15,7 +15,7 @@ export function* login(action) {
 
     yield put(AuthActions.authSuccess());
 
-    navigate('Menu');
+    navigate('Product');
   } catch (err) {
     yield put(AuthActions.authFailure());
   }

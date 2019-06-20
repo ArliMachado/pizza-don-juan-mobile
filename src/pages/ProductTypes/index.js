@@ -37,7 +37,7 @@ class ProductTypes extends Component {
 
   backToProducts = () => {
     const { navigation } = this.props;
-    navigation.navigate('Menu');
+    navigation.navigate('Product');
   };
 
   renderList = () => {
