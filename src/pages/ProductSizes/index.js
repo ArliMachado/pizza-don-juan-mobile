@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { ScrollView, TouchableOpacity } from 'react-native';
 
@@ -12,6 +13,27 @@ import ListItem from '~/components/ListItem';
 import { Content, Loading } from './styles';
 
 class ProductSizes extends Component {
+  static propTypes = {
+    productSizeRequest: PropTypes.func.isRequired,
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func,
+    }).isRequired,
+    productSizes: PropTypes.shape({
+      data: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number,
+          title: PropTypes.string,
+          file: PropTypes.shape({
+            url: PropTypes.string,
+          }),
+          price: PropTypes.string,
+        }),
+      ),
+      loading: PropTypes.bool.isRequired,
+    }).isRequired,
+    productSizeSelected: PropTypes.func.isRequired,
+  };
+
   componentDidMount() {
     const { productSizeRequest } = this.props;
     productSizeRequest();
