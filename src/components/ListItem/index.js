@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 
 import { Container, Title, Image } from './styles';
 
-const ListTypes = ({ title, uri }) => (
+const ListItem = ({ title, uri }) => (
   <Container>
     <Image source={{ uri }} />
     <Title>{title}</Title>
   </Container>
 );
 
-ListTypes.propTypes = {
+ListItem.propTypes = {
   title: PropTypes.string.isRequired,
   uri: PropTypes.string.isRequired,
 };
 
-export default ListTypes;
+export default ListItem;
