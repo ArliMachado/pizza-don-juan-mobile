@@ -12,6 +12,6 @@ export function* getProductTypes() {
 
     yield put(ProductTypeActions.productTypeSuccess(data));
   } catch (err) {
-    yield put(ProductTypeActions.productypeFailure());
+    yield put(ProductTypeActions.productTypeFailure());
   }
 }
