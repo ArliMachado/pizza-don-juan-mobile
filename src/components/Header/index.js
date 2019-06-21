@@ -14,7 +14,12 @@ const Header = ({ title, navigateTo, totalValue }) => (
         <Title>{title}</Title>
       </ContentTitle>
     </TouchableOpacity>
-    <TotalPrice>{totalValue}</TotalPrice>
+    {totalValue ? (
+      <TotalPrice>
+R$
+        {totalValue}
+      </TotalPrice>
+    ) : null}
   </Content>
 );
 

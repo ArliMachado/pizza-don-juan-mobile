@@ -5,10 +5,12 @@ import Register from './pages/Register';
 import Product from './pages/Product';
 import ProductTypes from './pages/ProductTypes';
 import ProductSizes from './pages/ProductSizes';
+import ShoppingCart from './pages/ShoppingCart';
 import AuthLoadingScreen from './pages/AuthLoading';
 
 const AppStack = createStackNavigator(
   {
+    ShoppingCart,
     Product,
     ProductTypes,
     ProductSizes,

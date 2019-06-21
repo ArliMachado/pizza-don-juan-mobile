@@ -5,6 +5,7 @@ import register from './register';
 import product from './product';
 import productType from './productType';
 import productSize from './ProductSize';
+import shoppingCart from './shoppingCart';
 
 export default combineReducers({
   auth,
@@ -12,4 +13,5 @@ export default combineReducers({
   product,
   productType,
   productSize,
+  shoppingCart,
 });
