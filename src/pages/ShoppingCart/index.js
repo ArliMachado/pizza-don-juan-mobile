@@ -9,8 +9,11 @@ import { Creators as ShoppingCartActions } from '~/store/ducks/shoppingCart';
 
 import Container from '~/components/Container';
 import Header from '~/components/Header';
+import Button from '~/components/Button';
 
-import { Content } from './styles';
+import {
+  Content, ButtonContent, IconContent, CartIcon,
+} from './styles';
 import CartList from './CartList';
 
 class ShoppingCart extends Component {
@@ -39,6 +42,12 @@ class ShoppingCart extends Component {
       <Container>
         <Header title="Carrinho" navigateTo={this.backToProductSizes} />
         {this.listCart()}
+        <ButtonContent>
+          <IconContent>
+            <CartIcon name="cart-plus" size={20} />
+          </IconContent>
+          <Button text="REALIZAR PEDIDO" />
+        </ButtonContent>
       </Container>
     );
   }
