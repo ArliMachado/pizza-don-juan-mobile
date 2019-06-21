@@ -16,7 +16,7 @@ const Header = ({ title, navigateTo, totalValue }) => (
     </TouchableOpacity>
     {totalValue ? (
       <TotalPrice>
-R$
+        R$
         {totalValue}
       </TotalPrice>
     ) : null}
@@ -24,12 +24,12 @@ R$
 );
 
 Header.defaultProps = {
-  totalValue: null,
+  totalValue: 0,
 };
 Header.propTypes = {
   title: PropTypes.string.isRequired,
   navigateTo: PropTypes.func.isRequired,
-  totalValue: PropTypes.string,
+  totalValue: PropTypes.number,
 };
 
 export default Header;

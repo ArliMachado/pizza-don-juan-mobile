@@ -25,7 +25,7 @@ export function* addToCart(action) {
     const product = {
       title: data.productType.title,
       size: data.title,
-      price: data.price,
+      price: Number(data.price),
       image: data.productType.file.url,
     };
 

@@ -36,11 +36,11 @@ class ShoppingCart extends Component {
   };
 
   render() {
-    const { shoppingCart } = this.props;
+    const { shoppingCart, totalValue } = this.props;
 
     return (
       <Container>
-        <Header title="Carrinho" navigateTo={this.backToProductSizes} />
+        <Header title="Carrinho" navigateTo={this.backToProductSizes} totalValue={totalValue} />
         {this.listCart()}
         <ButtonContent>
           <IconContent>
@@ -55,6 +55,7 @@ class ShoppingCart extends Component {
 
 const mapStateToProps = state => ({
   shoppingCart: state.shoppingCart,
+  totalValue: state.shoppingCart.items.map(item => item.price).reduce((prev, curr) => prev + curr),
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(ShoppingCartActions, dispatch);
