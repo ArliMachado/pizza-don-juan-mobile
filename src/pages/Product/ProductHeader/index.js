@@ -1,17 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { TouchableOpacity } from 'react-native';
 import {
   Content, Title, History, BagContainer, Bag,
 } from './styles';
+import { navigate } from '~/services/navigation';
 
 const MenuHeader = ({ title }) => (
   <Content>
     <History name="history" size={24} />
     <Title>{title}</Title>
-    <BagContainer>
-      <Bag name="shopping-bag" size={18} />
-    </BagContainer>
+    <TouchableOpacity onPress={() => navigate('ShoppingCart')}>
+      <BagContainer>
+        <Bag name="shopping-bag" size={18} />
+      </BagContainer>
+    </TouchableOpacity>
   </Content>
 );
 
