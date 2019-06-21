@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { ScrollView } from 'react-native';
+import { ScrollView, TouchableOpacity } from 'react-native';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -17,9 +17,9 @@ import {
 import CartList from './CartList';
 
 class ShoppingCart extends Component {
-  backToProductSizes = () => {
+  backToPage = (page) => {
     const { navigation } = this.props;
-    navigation.navigate('ProductSizes');
+    navigation.navigate(page);
   };
 
   listCart = () => {
@@ -40,11 +40,17 @@ class ShoppingCart extends Component {
 
     return (
       <Container>
-        <Header title="Carrinho" navigateTo={this.backToProductSizes} totalValue={totalValue} />
+        <Header
+          title="Carrinho"
+          navigateTo={() => this.backToPage('ProductSizes')}
+          totalValue={totalValue}
+        />
         {this.listCart()}
         <ButtonContent>
           <IconContent>
-            <CartIcon name="cart-plus" size={20} />
+            <TouchableOpacity onPress={() => this.backToPage('Product')}>
+              <CartIcon name="cart-plus" size={20} />
+            </TouchableOpacity>
           </IconContent>
           <Button text="REALIZAR PEDIDO" />
         </ButtonContent>
@@ -55,7 +61,7 @@ class ShoppingCart extends Component {
 
 const mapStateToProps = state => ({
   shoppingCart: state.shoppingCart,
-  totalValue: state.shoppingCart.items.map(item => item.price).reduce((prev, curr) => prev + curr),
+  totalValue: 0, // state.shoppingCart.items.map(item => item.price).reduce((prev, curr) => prev + curr),
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(ShoppingCartActions, dispatch);
