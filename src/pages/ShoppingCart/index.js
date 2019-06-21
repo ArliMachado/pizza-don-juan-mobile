@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import { ScrollView, TouchableOpacity } from 'react-native';
 
@@ -12,7 +12,12 @@ import Header from '~/components/Header';
 import Button from '~/components/Button';
 
 import {
-  Content, ButtonContent, IconContent, CartIcon,
+  Content,
+  ButtonContent,
+  IconContent,
+  CartIcon,
+  EmptyCartContent,
+  EmptyCartMessage,
 } from './styles';
 import CartList from './CartList';
 
@@ -25,18 +30,16 @@ class ShoppingCart extends Component {
   listCart = () => {
     const { shoppingCart } = this.props;
     return (
-      <ScrollView>
-        <Content>
-          {shoppingCart.items.map(item => (
-            <CartList key={Math.random()} data={item} />
-          ))}
-        </Content>
-      </ScrollView>
+      <Fragment>
+        {shoppingCart.items.map(item => (
+          <CartList key={Math.random()} data={item} />
+        ))}
+      </Fragment>
     );
   };
 
   render() {
-    const { shoppingCart, totalValue } = this.props;
+    const { shoppingCart, totalValue, hasItems } = this.props;
 
     return (
       <Container>
@@ -45,14 +48,26 @@ class ShoppingCart extends Component {
           navigateTo={() => this.backToPage('ProductSizes')}
           totalValue={totalValue}
         />
-        {this.listCart()}
+        <ScrollView>
+          <Content>
+            {hasItems ? (
+              this.listCart()
+            ) : (
+              <EmptyCartContent>
+                <EmptyCartMessage>Carrinho vazio</EmptyCartMessage>
+              </EmptyCartContent>
+            )}
+          </Content>
+        </ScrollView>
         <ButtonContent>
           <IconContent>
             <TouchableOpacity onPress={() => this.backToPage('Product')}>
               <CartIcon name="cart-plus" size={20} />
             </TouchableOpacity>
           </IconContent>
-          <Button text="REALIZAR PEDIDO" />
+          <TouchableOpacity disabled={!hasItems}>
+            <Button text="REALIZAR PEDIDO" />
+          </TouchableOpacity>
         </ButtonContent>
       </Container>
     );
@@ -61,7 +76,11 @@ class ShoppingCart extends Component {
 
 const mapStateToProps = state => ({
   shoppingCart: state.shoppingCart,
-  totalValue: 0, // state.shoppingCart.items.map(item => item.price).reduce((prev, curr) => prev + curr),
+  hasItems: state.shoppingCart.items.length > 0,
+  totalValue:
+    state.shoppingCart.items.length > 0
+      ? state.shoppingCart.items.map(item => item.price).reduce((prev, curr) => prev + curr)
+      : 0,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(ShoppingCartActions, dispatch);

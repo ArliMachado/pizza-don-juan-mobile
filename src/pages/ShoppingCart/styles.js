@@ -32,3 +32,14 @@ export const IconContent = styled.View`
 export const CartIcon = styled(Icon)`
   color: ${colors.white};
 `;
+export const EmptyCartContent = styled.View`
+  /* flex: 1; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+export const EmptyCartMessage = styled.Text`
+  font-size: 28;
+  font-weight: bold;
+  color: ${colors.regular};
+`;
