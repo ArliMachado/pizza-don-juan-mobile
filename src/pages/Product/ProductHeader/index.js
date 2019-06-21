@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   Content, Title, History, BagContainer, Bag,
@@ -13,5 +14,9 @@ const MenuHeader = ({ title }) => (
     </BagContainer>
   </Content>
 );
+
+MenuHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default MenuHeader;

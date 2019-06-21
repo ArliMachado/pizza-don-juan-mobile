@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { Creators as ProductActions } from '~/store/ducks/product';
 import { TouchableOpacity, ScrollView } from 'react-native';
 
-import MenuHeader from '~/components/MenuHeader';
+import ProductHeader from './ProductHeader';
 import ProductList from './ProductList';
 import Container from '~/components/Container';
 
@@ -50,7 +50,7 @@ class Product extends Component {
     const { product } = this.props;
     return (
       <Container>
-        <MenuHeader title="Pizzaria Don Juan" />
+        <ProductHeader title="Pizzaria Don Juan" />
         {product.loading ? <Loading /> : this.listProduct()}
       </Container>
     );
