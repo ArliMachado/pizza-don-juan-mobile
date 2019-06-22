@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import { ScrollView, TouchableOpacity } from 'react-native';
 
@@ -22,24 +23,43 @@ import {
 import CartList from './CartList';
 
 class ShoppingCart extends Component {
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func,
+    }).isRequired,
+    shoppingCart: PropTypes.shape({
+      items: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.string,
+          size: PropTypes.string,
+          price: PropTypes.number,
+          image: PropTypes.string,
+        }),
+      ),
+    }).isRequired,
+    shoppingCartRemove: PropTypes.func.isRequired,
+    totalValue: PropTypes.number.isRequired,
+    hasItems: PropTypes.bool.isRequired,
+  };
+
   backToPage = (page) => {
     const { navigation } = this.props;
     navigation.navigate(page);
   };
 
   listCart = () => {
-    const { shoppingCart } = this.props;
+    const { shoppingCart, shoppingCartRemove } = this.props;
     return (
       <Fragment>
         {shoppingCart.items.map(item => (
-          <CartList key={Math.random()} data={item} />
+          <CartList key={Math.random()} data={item} remove={() => shoppingCartRemove(item)} />
         ))}
       </Fragment>
     );
   };
 
   render() {
-    const { shoppingCart, totalValue, hasItems } = this.props;
+    const { totalValue, hasItems } = this.props;
 
     return (
       <Container>
@@ -65,9 +85,11 @@ class ShoppingCart extends Component {
               <CartIcon name="cart-plus" size={20} />
             </TouchableOpacity>
           </IconContent>
-          <TouchableOpacity disabled={!hasItems}>
-            <Button text="REALIZAR PEDIDO" />
-          </TouchableOpacity>
+          {hasItems ? (
+            <TouchableOpacity>
+              <Button text="REALIZAR PEDIDO" />
+            </TouchableOpacity>
+          ) : null}
         </ButtonContent>
       </Container>
     );

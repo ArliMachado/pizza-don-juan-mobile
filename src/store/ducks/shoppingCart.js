@@ -17,6 +17,11 @@ export default function shoppingCart(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.ADD:
       return { ...state, items: [...state.items, action.payload.data] };
+    case Types.REMOVE:
+      return {
+        ...state,
+        items: [...state.items.filter(item => item !== action.payload.item)],
+      };
 
     default:
       return state;
@@ -32,7 +37,8 @@ export const Creators = {
     type: Types.ADD,
     payload: { data },
   }),
-  shoppingCartRemove: () => ({
+  shoppingCartRemove: item => ({
     type: Types.REMOVE,
+    payload: { item },
   }),
 };

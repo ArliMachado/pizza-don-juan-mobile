@@ -13,7 +13,7 @@ import {
   Delete,
 } from './styles';
 
-const CartList = ({ data }) => (
+const CartList = ({ data, remove }) => (
   <Container>
     <ImageContent>
       <Image source={{ uri: data.image }} />
@@ -31,7 +31,7 @@ const CartList = ({ data }) => (
     </ProductInfo>
 
     <ButtonContent>
-      <Delete name="trash-o" size={24} />
+      <Delete name="trash-o" size={24} onPress={remove} />
     </ButtonContent>
   </Container>
 );
@@ -41,6 +41,7 @@ CartList.propTypes = {
     url: PropType.string,
     title: PropType.string,
   }).isRequired,
+  remove: PropType.func.isRequired,
 };
 
 export default CartList;
