@@ -40,6 +40,7 @@ class ShoppingCart extends Component {
     shoppingCartRemove: PropTypes.func.isRequired,
     totalValue: PropTypes.number.isRequired,
     hasItems: PropTypes.bool.isRequired,
+    addToOrder: PropTypes.func.isRequired,
   };
 
   backToPage = (page) => {
@@ -58,8 +59,14 @@ class ShoppingCart extends Component {
     );
   };
 
+  addItemsToOrder = () => {
+    console.tron.log('eee');
+    const { addToOrder } = this.props;
+    addToOrder();
+  };
+
   render() {
-    const { totalValue, hasItems } = this.props;
+    const { totalValue, hasItems, addToOrder } = this.props;
 
     return (
       <Container>
@@ -85,11 +92,7 @@ class ShoppingCart extends Component {
               <CartIcon name="cart-plus" size={20} />
             </TouchableOpacity>
           </IconContent>
-          {hasItems ? (
-            <TouchableOpacity>
-              <Button text="REALIZAR PEDIDO" />
-            </TouchableOpacity>
-          ) : null}
+          {hasItems ? <Button text="REALIZAR PEDIDO" onpress={() => addToOrder()} /> : null}
         </ButtonContent>
       </Container>
     );

@@ -6,6 +6,7 @@ import product from './product';
 import productType from './productType';
 import productSize from './ProductSize';
 import shoppingCart from './shoppingCart';
+import order from './order';
 
 export default combineReducers({
   auth,
@@ -14,4 +15,5 @@ export default combineReducers({
   productType,
   productSize,
   shoppingCart,
+  order,
 });

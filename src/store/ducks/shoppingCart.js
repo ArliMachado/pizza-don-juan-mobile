@@ -5,7 +5,7 @@
 export const Types = {
   ADD: 'shoppingCart/ADD',
   REMOVE: 'shoppingCart/REMOVE',
-  FINISH: 'shoppingCart/FINISH',
+  ADD_TO_ORDER: 'shoppingCart/ADD_TO_ORDER',
   FAILURE: 'shoppingCart/FAILURE',
 };
 
@@ -22,7 +22,9 @@ export default function shoppingCart(state = INITIAL_STATE, action) {
         ...state,
         items: [...state.items.filter(item => item !== action.payload.item)],
       };
-
+    case Types.ADD_TO_ORDER:
+      console.tron.log('aqui');
+      return state;
     default:
       return state;
   }
@@ -40,5 +42,8 @@ export const Creators = {
   shoppingCartRemove: item => ({
     type: Types.REMOVE,
     payload: { item },
+  }),
+  addToOrder: () => ({
+    type: Types.ADD_TO_ORDER,
   }),
 };

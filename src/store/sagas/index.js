@@ -12,6 +12,7 @@ import { login } from './auth';
 import { getProducts } from './product';
 import { getProductTypes } from './productType';
 import { getProductSizes, addToCart } from './productSize';
+import { addToOrder } from './shoppingCart';
 
 export default function* rootSaga() {
   return yield all([
@@ -26,5 +27,7 @@ export default function* rootSaga() {
     takeLatest(ProductSizes.REQUEST, getProductSizes),
 
     takeLatest(ProductSizes.SELECTED, addToCart),
+
+    takeLatest(ShoppingCartTypes.ADD_TO_ORDER, addToOrder),
   ]);
 }

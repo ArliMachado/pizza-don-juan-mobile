@@ -7,13 +7,15 @@ import ProductTypes from './pages/ProductTypes';
 import ProductSizes from './pages/ProductSizes';
 import ShoppingCart from './pages/ShoppingCart';
 import AuthLoadingScreen from './pages/AuthLoading';
+import PlaceOrder from './pages/PlaceOrder';
 
 const AppStack = createStackNavigator(
   {
-    ShoppingCart,
     Product,
     ProductTypes,
     ProductSizes,
+    ShoppingCart,
+    PlaceOrder,
   },
   {
     headerMode: 'none',
