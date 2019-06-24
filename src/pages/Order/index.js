@@ -69,7 +69,10 @@ class Order extends Component {
 }
 
 const mapStateToProps = state => ({
-  totalValue: 0,
+  totalValue:
+    state.order.items.length > 0
+      ? state.order.items.map(item => item.price).reduce((prev, curr) => prev + curr)
+      : 0,
 });
 
 // const mapDispatchToProps = dispatch =>
