@@ -19,7 +19,7 @@ import {
   FinishButton,
 } from './styles';
 
-class PlaceOrder extends Component {
+class Order extends Component {
   backToPage = (page) => {
     const { navigation } = this.props;
     navigation.navigate(page);
@@ -78,4 +78,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   // mapDispatchToProps
-)(PlaceOrder);
+)(Order);
