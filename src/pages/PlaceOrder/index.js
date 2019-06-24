@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 
-import { View, TextInput } from 'react-native';
+import { View } from 'react-native';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Container from '~/components/Container';
 import Header from '~/components/Header';
+import Button from '~/components/Button';
 
-import { Observation, Content } from './styles';
+import {
+  Observation,
+  Content,
+  Input,
+  RoadContent,
+  Road,
+  Number,
+  ButtonContent,
+  FinishButton,
+} from './styles';
 
 class PlaceOrder extends Component {
   backToPage = (page) => {
@@ -25,12 +35,33 @@ class PlaceOrder extends Component {
           totalValue={totalValue}
         />
         <Content>
-          <Observation multiline numberOfLines={10} PlaceOrder="Alguma observação?" />
-          {/* <TextInput
+          <Observation
+            style={{ textAlignVertical: 'top' }}
             multiline
-            numberOfLines={10}
-            style={{ height: 200, textAlignVertical: 'top', backgroundColor: '#FFF' }}
-          /> */}
+            numberOfLines={5}
+            placeholder="Alguma observação?"
+          />
+
+          <Input
+            autoCapitalize="none"
+            autoCorrect={false}
+            placeholder="Qual seu cep?"
+            keyboardType="numeric"
+          />
+
+          <RoadContent>
+            <Road autoCapitalize="none" autoCorrect={false} placeholder="Rua" />
+            <Number
+              autoCapitalize="none"
+              autoCorrect={false}
+              placeholder="N°"
+              keyboardType="numeric"
+            />
+          </RoadContent>
+          <Input autoCapitalize="none" autoCorrect={false} placeholder="Bairro" />
+          <ButtonContent>
+            <FinishButton text="FINALIZAR" onpress={() => {}} />
+          </ButtonContent>
         </Content>
       </Container>
     );
