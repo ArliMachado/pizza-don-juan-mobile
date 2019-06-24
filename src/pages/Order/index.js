@@ -4,10 +4,10 @@ import { View } from 'react-native';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Creators as OrderActions } from '~/store/ducks/order';
+
 import Container from '~/components/Container';
 import Header from '~/components/Header';
-import Button from '~/components/Button';
-
 import {
   Observation,
   Content,
@@ -26,7 +26,8 @@ class Order extends Component {
   };
 
   render() {
-    const { totalValue } = this.props;
+    const { totalValue, cepRequest } = this.props;
+
     return (
       <Container>
         <Header
@@ -60,7 +61,7 @@ class Order extends Component {
           </RoadContent>
           <Input autoCapitalize="none" autoCorrect={false} placeholder="Bairro" />
           <ButtonContent>
-            <FinishButton text="FINALIZAR" onpress={() => {}} />
+            <FinishButton text="FINALIZAR" onpress={() => cepRequest('26515440')} />
           </ButtonContent>
         </Content>
       </Container>
@@ -69,16 +70,16 @@ class Order extends Component {
 }
 
 const mapStateToProps = state => ({
+  order: state.order,
   totalValue:
     state.order.items.length > 0
       ? state.order.items.map(item => item.price).reduce((prev, curr) => prev + curr)
       : 0,
 });
 
-// const mapDispatchToProps = dispatch =>
-//   bindActionCreators(Actions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(OrderActions, dispatch);
 
 export default connect(
   mapStateToProps,
-  // mapDispatchToProps
+  mapDispatchToProps,
 )(Order);
