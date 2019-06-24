@@ -11,11 +11,11 @@ import PlaceOrder from './pages/PlaceOrder';
 
 const AppStack = createStackNavigator(
   {
+    PlaceOrder,
     Product,
     ProductTypes,
     ProductSizes,
     ShoppingCart,
-    PlaceOrder,
   },
   {
     headerMode: 'none',
