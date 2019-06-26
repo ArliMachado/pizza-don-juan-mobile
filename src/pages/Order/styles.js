@@ -27,10 +27,10 @@ export const Observation = styled(Input)`
   padding-top: 15;
 `;
 
-export const RoadContent = styled.View`
+export const StreetContent = styled.View`
   flex-direction: row;
 `;
-export const Road = styled(Input)`
+export const Street = styled(Input)`
   width: ${metrics.screenWidth * 0.6};
   margin-right: ${metrics.baseMargin};
 `;

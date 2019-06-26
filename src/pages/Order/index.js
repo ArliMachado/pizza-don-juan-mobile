@@ -12,14 +12,19 @@ import {
   Observation,
   Content,
   Input,
-  RoadContent,
-  Road,
+  StreetContent,
+  Street,
   Number,
   ButtonContent,
   FinishButton,
 } from './styles';
 
 class Order extends Component {
+  state = {
+    observation: '',
+    cep: '',
+  };
+
   backToPage = (page) => {
     const { navigation } = this.props;
     navigation.navigate(page);
@@ -50,15 +55,15 @@ class Order extends Component {
             keyboardType="numeric"
           />
 
-          <RoadContent>
-            <Road autoCapitalize="none" autoCorrect={false} placeholder="Rua" />
+          <StreetContent>
+            <Street autoCapitalize="none" autoCorrect={false} placeholder="Rua" />
             <Number
               autoCapitalize="none"
               autoCorrect={false}
               placeholder="N°"
               keyboardType="numeric"
             />
-          </RoadContent>
+          </StreetContent>
           <Input autoCapitalize="none" autoCorrect={false} placeholder="Bairro" />
           <ButtonContent>
             <FinishButton text="FINALIZAR" onpress={() => cepRequest('26515440')} />
