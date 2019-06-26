@@ -23,6 +23,9 @@ class Order extends Component {
   state = {
     observation: '',
     cep: '',
+    street: '',
+    number: '',
+    city: '',
   };
 
   backToPage = (page) => {
@@ -30,7 +33,20 @@ class Order extends Component {
     navigation.navigate(page);
   };
 
+  handleCepRequest = async () => {
+    const { cep } = this.state;
+    const { order, cepRequest } = this.props;
+
+    cepRequest(cep);
+    console.tron.log(JSON.stringify(order.address));
+    // this.setState(...order.address);
+  };
+
   render() {
+    const {
+      observation, cep, street, number, city,
+    } = this.state;
+
     const { totalValue, cepRequest } = this.props;
 
     return (
@@ -46,6 +62,8 @@ class Order extends Component {
             multiline
             numberOfLines={5}
             placeholder="Alguma observação?"
+            value={observation}
+            onChangeText={text => this.setState({ observation: text })}
           />
 
           <Input
@@ -53,20 +71,37 @@ class Order extends Component {
             autoCorrect={false}
             placeholder="Qual seu cep?"
             keyboardType="numeric"
+            value={cep}
+            onChangeText={text => this.setState({ cep: text })}
+            onBlur={this.handleCepRequest}
           />
 
           <StreetContent>
-            <Street autoCapitalize="none" autoCorrect={false} placeholder="Rua" />
+            <Street
+              autoCapitalize="none"
+              autoCorrect={false}
+              placeholder="Rua"
+              value={street}
+              onChangeText={text => this.setState({ street: text })}
+            />
             <Number
               autoCapitalize="none"
               autoCorrect={false}
               placeholder="N°"
               keyboardType="numeric"
+              value={number}
+              onChangeText={text => this.setState({ number: text })}
             />
           </StreetContent>
-          <Input autoCapitalize="none" autoCorrect={false} placeholder="Bairro" />
+          <Input
+            autoCapitalize="none"
+            autoCorrect={false}
+            placeholder="Bairro"
+            value={city}
+            onChangeText={text => this.setState({ city: text })}
+          />
           <ButtonContent>
-            <FinishButton text="FINALIZAR" onpress={() => cepRequest('26515440')} />
+            <FinishButton text="FINALIZAR" onpress={() => {}} />
           </ButtonContent>
         </Content>
       </Container>
