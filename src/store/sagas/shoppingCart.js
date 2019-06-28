@@ -6,6 +6,6 @@ import { navigate } from '~/services/navigation';
 
 export function* addToOrder() {
   const { items } = yield select(state => state.shoppingCart);
-  yield put(OrderActions.setItems(items));
+  yield put(OrderActions.setProducts(items));
   navigate('Order');
 }

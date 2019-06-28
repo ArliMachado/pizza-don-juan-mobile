@@ -22,9 +22,6 @@ export default function shoppingCart(state = INITIAL_STATE, action) {
         ...state,
         items: [...state.items.filter(item => item !== action.payload.item)],
       };
-    case Types.ADD_TO_ORDER:
-      console.tron.log('aqui');
-      return state;
     default:
       return state;
   }

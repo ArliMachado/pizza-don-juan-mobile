@@ -21,11 +21,7 @@ import {
 
 class Order extends Component {
   state = {
-    observation: '',
     cep: '',
-    street: '',
-    number: '',
-    city: '',
   };
 
   backToPage = (page) => {
@@ -43,11 +39,11 @@ class Order extends Component {
   };
 
   render() {
-    const {
-      observation, cep, street, number, city,
-    } = this.state;
+    const { observation, cep } = this.state;
 
-    const { totalValue, cepRequest } = this.props;
+    const {
+      order, totalValue, setObservation, setStreet, setNumber, setCity,
+    } = this.props;
 
     return (
       <Container>
@@ -62,8 +58,8 @@ class Order extends Component {
             multiline
             numberOfLines={5}
             placeholder="Alguma observação?"
-            value={observation}
-            onChangeText={text => this.setState({ observation: text })}
+            value={order.address.observation}
+            onChangeText={text => setObservation(text)}
           />
 
           <Input
@@ -81,24 +77,24 @@ class Order extends Component {
               autoCapitalize="none"
               autoCorrect={false}
               placeholder="Rua"
-              value={street}
-              onChangeText={text => this.setState({ street: text })}
+              value={order.address.street}
+              onChangeText={text => setStreet(text)}
             />
             <Number
               autoCapitalize="none"
               autoCorrect={false}
               placeholder="N°"
               keyboardType="numeric"
-              value={number}
-              onChangeText={text => this.setState({ number: text })}
+              value={order.address.number}
+              onChangeText={text => setNumber(text)}
             />
           </StreetContent>
           <Input
             autoCapitalize="none"
             autoCorrect={false}
             placeholder="Bairro"
-            value={city}
-            onChangeText={text => this.setState({ city: text })}
+            value={order.address.city}
+            onChangeText={text => setCity(text)}
           />
           <ButtonContent>
             <FinishButton text="FINALIZAR" onpress={() => {}} />
@@ -112,8 +108,8 @@ class Order extends Component {
 const mapStateToProps = state => ({
   order: state.order,
   totalValue:
-    state.order.items.length > 0
-      ? state.order.items.map(item => item.price).reduce((prev, curr) => prev + curr)
+    state.order.products.length > 0
+      ? state.order.products.map(product => product.price).reduce((prev, curr) => prev + curr)
       : 0,
 });
 
