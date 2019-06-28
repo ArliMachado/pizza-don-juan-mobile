@@ -11,11 +11,11 @@ import Order from './pages/Order';
 
 const AppStack = createStackNavigator(
   {
-    Order,
     Product,
     ProductTypes,
     ProductSizes,
     ShoppingCart,
+    Order,
   },
   {
     headerMode: 'none',

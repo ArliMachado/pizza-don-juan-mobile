@@ -38,6 +38,12 @@ class Order extends Component {
     // this.setState(...order.address);
   };
 
+  handleOrderCreate = () => {
+    const { orderRequest } = this.props;
+
+    orderRequest();
+  };
+
   render() {
     const { observation, cep } = this.state;
 
@@ -97,7 +103,7 @@ class Order extends Component {
             onChangeText={text => setCity(text)}
           />
           <ButtonContent>
-            <FinishButton text="FINALIZAR" onpress={() => {}} />
+            <FinishButton text="FINALIZAR" onpress={this.handleOrderCreate} />
           </ButtonContent>
         </Content>
       </Container>

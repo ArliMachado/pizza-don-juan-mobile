@@ -14,7 +14,7 @@ import { getProducts } from './product';
 import { getProductTypes } from './productType';
 import { getProductSizes, addToCart } from './productSize';
 import { addToOrder } from './shoppingCart';
-import { getAddress } from './order';
+import { getAddress, createOrder } from './order';
 
 export default function* rootSaga() {
   return yield all([
@@ -33,5 +33,7 @@ export default function* rootSaga() {
     takeLatest(ShoppingCartTypes.ADD_TO_ORDER, addToOrder),
 
     takeLatest(OrderTypes.CEP_REQUEST, getAddress),
+
+    takeLatest(OrderTypes.REQUEST, createOrder),
   ]);
 }

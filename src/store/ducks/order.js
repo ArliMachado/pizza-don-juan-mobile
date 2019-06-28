@@ -10,6 +10,9 @@ export const Types = {
   SET_CITY: 'order/SET_CITY',
   CEP_REQUEST: 'order/CEP_REQUEST',
   CEP_RESPONSE: 'order/CEP_RESPONSE',
+  REQUEST: 'order/REQUEST',
+  RESPONSE: 'order/RESPONSE',
+  FAILURE: 'order/FAILURE',
 };
 
 /**
@@ -39,6 +42,10 @@ export default function order(state = INITIAL_STATE, action) {
       return { ...state, loading: true };
     case Types.CEP_RESPONSE:
       return { ...state, loading: false, address: action.payload.data };
+    case Types.REQUEST:
+      return { ...state, loading: true };
+    case Types.RESPONSE:
+      return INITIAL_STATE;
     default:
       return state;
   }
@@ -76,5 +83,11 @@ export const Creators = {
   cepResponse: data => ({
     type: Types.CEP_RESPONSE,
     payload: { data },
+  }),
+  orderRequest: () => ({
+    type: Types.REQUEST,
+  }),
+  orderResponse: () => ({
+    type: Types.RESPONSE,
   }),
 };
