@@ -5,6 +5,7 @@ import cepApi from 'cep-promise';
 import { navigate } from '~/services/navigation';
 
 import { Creators as OrderActions } from '~/store/ducks/order';
+import { Creators as ShoppingCartActions } from '~/store/ducks/shoppingCart';
 
 export function* getAddress(action) {
   try {
@@ -21,6 +22,8 @@ export function* createOrder() {
     const { items } = yield select(state => state.shoppingCart);
 
     yield call(api.post, '/orders', { observation, address, products: items });
+
+    yield put(ShoppingCartActions.cleanCart());
 
     yield put(OrderActions.orderResponse());
 

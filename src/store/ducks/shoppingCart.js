@@ -7,6 +7,7 @@ export const Types = {
   REMOVE: 'shoppingCart/REMOVE',
   ADD_TO_ORDER: 'shoppingCart/ADD_TO_ORDER',
   FAILURE: 'shoppingCart/FAILURE',
+  CLEAN: 'shoppingCart/CLEAN',
 };
 
 /**
@@ -22,6 +23,8 @@ export default function shoppingCart(state = INITIAL_STATE, action) {
         ...state,
         items: [...state.items.filter(item => item !== action.payload.item)],
       };
+    case Types.CLEAN:
+      return INITIAL_STATE;
     default:
       return state;
   }
@@ -42,5 +45,8 @@ export const Creators = {
   }),
   addToOrder: () => ({
     type: Types.ADD_TO_ORDER,
+  }),
+  cleanCart: () => ({
+    type: Types.CLEAN,
   }),
 };
