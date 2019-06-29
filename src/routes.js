@@ -6,11 +6,13 @@ import Product from './pages/Product';
 import ProductTypes from './pages/ProductTypes';
 import ProductSizes from './pages/ProductSizes';
 import ShoppingCart from './pages/ShoppingCart';
+import Profile from './pages/Profile';
 import AuthLoadingScreen from './pages/AuthLoading';
 import Order from './pages/Order';
 
 const AppStack = createStackNavigator(
   {
+    Profile,
     Product,
     ProductTypes,
     ProductSizes,

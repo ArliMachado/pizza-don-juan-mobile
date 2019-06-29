@@ -7,6 +7,7 @@ import { Types as ProductTypeTypes } from '~/store/ducks/productType';
 import { Types as ProductSizes } from '~/store/ducks/ProductSize';
 import { Types as ShoppingCartTypes } from '~/store/ducks/shoppingCart';
 import { Types as OrderTypes } from '~/store/ducks/order';
+import { Types as ProfileTypes } from '~/store/ducks/profile';
 
 import { addUser } from './register';
 import { login } from './auth';
@@ -15,6 +16,7 @@ import { getProductTypes } from './productType';
 import { getProductSizes, addToCart } from './productSize';
 import { addToOrder } from './shoppingCart';
 import { getAddress, createOrder } from './order';
+import { getOrders } from './profile';
 
 export default function* rootSaga() {
   return yield all([
@@ -35,5 +37,7 @@ export default function* rootSaga() {
     takeLatest(OrderTypes.CEP_REQUEST, getAddress),
 
     takeLatest(OrderTypes.REQUEST, createOrder),
+
+    takeLatest(ProfileTypes.REQUEST, getOrders),
   ]);
 }

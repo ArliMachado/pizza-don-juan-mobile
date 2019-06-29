@@ -9,7 +9,9 @@ import { navigate } from '~/services/navigation';
 
 const MenuHeader = ({ title }) => (
   <Content>
-    <History name="history" size={24} />
+    <TouchableOpacity onPress={() => navigate('Profile')}>
+      <History name="history" size={24} />
+    </TouchableOpacity>
     <Title>{title}</Title>
     <TouchableOpacity onPress={() => navigate('ShoppingCart')}>
       <BagContainer>
