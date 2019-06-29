@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import { View } from 'react-native';
+import PropTypes from 'prop-types';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -20,6 +19,27 @@ import {
 } from './styles';
 
 class Order extends Component {
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func,
+    }).isRequired,
+    order: PropTypes.shape({
+      address: PropTypes.shape({
+        street: PropTypes.string,
+        number: PropTypes.string,
+        city: PropTypes.string,
+      }),
+      observation: PropTypes.string,
+    }).isRequired,
+    cepRequest: PropTypes.func.isRequired,
+    orderRequest: PropTypes.func.isRequired,
+    totalValue: PropTypes.number.isRequired,
+    setObservation: PropTypes.func.isRequired,
+    setStreet: PropTypes.func.isRequired,
+    setNumber: PropTypes.func.isRequired,
+    setCity: PropTypes.func.isRequired,
+  };
+
   state = {
     cep: '',
   };
@@ -31,11 +51,9 @@ class Order extends Component {
 
   handleCepRequest = async () => {
     const { cep } = this.state;
-    const { order, cepRequest } = this.props;
+    const { cepRequest } = this.props;
 
     cepRequest(cep);
-    console.tron.log(JSON.stringify(order.address));
-    // this.setState(...order.address);
   };
 
   handleOrderCreate = () => {
@@ -45,7 +63,7 @@ class Order extends Component {
   };
 
   render() {
-    const { observation, cep } = this.state;
+    const { cep } = this.state;
 
     const {
       order, totalValue, setObservation, setStreet, setNumber, setCity,
@@ -64,7 +82,7 @@ class Order extends Component {
             multiline
             numberOfLines={5}
             placeholder="Alguma observação?"
-            value={order.address.observation}
+            value={order.observation}
             onChangeText={text => setObservation(text)}
           />
 
