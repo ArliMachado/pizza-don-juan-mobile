@@ -67,12 +67,13 @@ class ShoppingCart extends Component {
 
   render() {
     const { totalValue, hasItems, addToOrder } = this.props;
+    const BACK_TO_PAGE = hasItems ? 'ProductSizes' : 'Product';
 
     return (
       <Container>
         <Header
           title="Carrinho"
-          navigateTo={() => this.backToPage('ProductSizes')}
+          navigateTo={() => this.backToPage(BACK_TO_PAGE)}
           totalValue={totalValue}
         />
         <ScrollView>
