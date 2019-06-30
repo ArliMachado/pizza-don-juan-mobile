@@ -1,21 +1,28 @@
 import React from 'react';
+import moment from 'moment';
+import 'moment/locale/pt-br';
 
 import {
   Container, OrderTitle, OrderDate, OrderValue,
 } from './styles';
 
-const OrderList = ({ data }) => (
-  <Container>
-    <OrderTitle>
+moment.locale('pt-BR');
+
+const OrderList = ({ data }) => {
+  const dataPedido = moment(data.created_at).fromNow();
+  return (
+    <Container>
+      <OrderTitle>
 Pedido #
-      {data.id}
-    </OrderTitle>
-    <OrderDate>{data.created_at}</OrderDate>
-    <OrderValue>
+        {data.id}
+      </OrderTitle>
+      <OrderDate>{dataPedido}</OrderDate>
+      <OrderValue>
         R$
-      {data.total_value}
-    </OrderValue>
-  </Container>
-);
+        {data.total_value}
+      </OrderValue>
+    </Container>
+  );
+};
 
 export default OrderList;
