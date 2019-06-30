@@ -10,13 +10,14 @@ import Header from '~/components/Header';
 import {
   Observation,
   Content,
-  Input,
   StreetContent,
   Street,
   Number,
   ButtonContent,
   FinishButton,
 } from './styles';
+
+import { Input } from '~/styles/globalStyles';
 
 class Order extends Component {
   static propTypes = {

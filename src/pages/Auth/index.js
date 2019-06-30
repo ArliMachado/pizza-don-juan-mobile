@@ -10,12 +10,12 @@ import {
   ContentLogo,
   Logo,
   ContentForm,
-  Input,
   Button,
   Text,
   LinkText,
   Loading,
 } from './styles';
+import { Input } from '~/styles/globalStyles';
 import BackgroundLogin from '~/assets/background_login.png';
 import ImageLogo from '~/assets/logo.png';
 

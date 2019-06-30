@@ -27,19 +27,6 @@ export const Logo = styled.Image`
 
 export const ContentForm = styled.View``;
 
-export const Input = styled.TextInput.attrs({
-  placeholderTextColor: colors.regular,
-})`
-  background: ${colors.white};
-  border-radius: ${metrics.baseRadius * 2};
-  letter-spacing: 0;
-  padding: 0 ${metrics.basePadding}px;
-  height: 52px;
-  font-size: ${fonts.medium};
-  color: ${colors.darker};
-  margin-top: ${metrics.baseMargin};
-`;
-
 export const Button = styled.TouchableOpacity`
   background: ${colors.red};
   border-radius: ${metrics.baseRadius * 2};
