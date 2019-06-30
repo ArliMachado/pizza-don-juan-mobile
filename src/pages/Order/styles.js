@@ -22,9 +22,11 @@ export const Input = styled.TextInput.attrs({
   margin-top: ${metrics.baseMargin};
 `;
 
-export const Observation = styled(Input)`
+export const Observation = styled(Input).attrs({
+  textAlignVertical: 'top',
+})`
+  padding-top: ${metrics.basePadding}px;
   height: 150px;
-  padding-top: 15;
 `;
 
 export const StreetContent = styled.View`

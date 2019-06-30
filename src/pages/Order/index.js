@@ -78,7 +78,6 @@ class Order extends Component {
         />
         <Content>
           <Observation
-            style={{ textAlignVertical: 'top' }}
             multiline
             numberOfLines={5}
             placeholder="Alguma observação?"
