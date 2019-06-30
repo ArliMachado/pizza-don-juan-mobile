@@ -18,7 +18,7 @@ export const Input = styled.TextInput.attrs({
   padding: 0 ${metrics.basePadding}px;
   height: 52px;
   font-size: ${fonts.medium};
-  color: ${colors.darker};
+  color: ${colors.primary};
   margin-top: ${metrics.baseMargin};
 `;
 

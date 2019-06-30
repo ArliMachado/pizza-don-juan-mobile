@@ -32,7 +32,7 @@ export const ProductInfo = styled.View`
 export const ProductTitle = styled.Text`
   font-size: ${fonts.medium};
   font-weight: bold;
-  color: ${colors.dark};
+  color: ${colors.primary};
 `;
 export const ProductSize = styled.Text`
   font-size: ${fonts.regular};
@@ -41,7 +41,7 @@ export const ProductSize = styled.Text`
 export const ProductPrice = styled.Text`
   font-size: ${fonts.big};
   font-weight: bold;
-  color: ${colors.darker};
+  color: ${colors.primary};
 `;
 
 export const ButtonContent = styled.View`

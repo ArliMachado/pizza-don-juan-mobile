@@ -13,5 +13,5 @@ export const Image = styled.Image`
   position: absolute;
 `;
 export const StatusBar = styled.StatusBar.attrs({
-  backgroundColor: '#0b2031',
+  backgroundColor: colors.primary,
 })``;

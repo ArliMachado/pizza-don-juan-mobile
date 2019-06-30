@@ -27,7 +27,7 @@ export const InfoContent = styled.View`
 export const Title = styled.Text`
   font-size: ${fonts.medium};
   font-weight: bold;
-  color: ${colors.darker};
+  color: ${colors.primary};
 `;
 export const Price = styled.Text`
   font-size: ${fonts.regular};

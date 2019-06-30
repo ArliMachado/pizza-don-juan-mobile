@@ -33,7 +33,6 @@ export const CartIcon = styled(Icon)`
   color: ${colors.white};
 `;
 export const EmptyCartContent = styled.View`
-  /* flex: 1; */
   flex-direction: column;
   align-items: center;
   justify-content: center;
