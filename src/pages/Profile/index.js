@@ -10,7 +10,7 @@ import Header from '~/components/Header';
 import { ScrollView } from 'react-native';
 import ListOrders from './OrderList';
 
-// import { Container } from './styles';
+import { EmptyProfileContent, EmptyProfileMessage } from './styles';
 
 class Profile extends Component {
   componentWillMount() {
@@ -23,17 +23,30 @@ class Profile extends Component {
     navigation.navigate('Product');
   };
 
-  render() {
+  listOrders = () => {
     const { profile } = this.props;
+    return (
+      <ScrollView>
+        {profile.data.map(order => (
+          <ListOrders key={order.id} data={order} />
+        ))}
+      </ScrollView>
+    );
+  };
+
+  render() {
+    const { hasOrders } = this.props;
 
     return (
       <Container>
         <Header title="Meus pedidos" navigateTo={this.handleBackToProducts} />
-        <ScrollView>
-          {profile.data.map(order => (
-            <ListOrders key={order.id} data={order} />
-          ))}
-        </ScrollView>
+        {hasOrders ? (
+          this.listOrders()
+        ) : (
+          <EmptyProfileContent>
+            <EmptyProfileMessage>Não há pedidos</EmptyProfileMessage>
+          </EmptyProfileContent>
+        )}
       </Container>
     );
   }
@@ -41,6 +54,7 @@ class Profile extends Component {
 
 const mapStateToProps = state => ({
   profile: state.profile,
+  hasOrders: state.profile.data.length > 0,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(ProfileActions, dispatch);
