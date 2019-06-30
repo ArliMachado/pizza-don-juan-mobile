@@ -1,4 +1,4 @@
-import { colors, metrics } from '~/styles';
+import { colors, metrics, fonts } from '~/styles';
 
 import styled from 'styled-components/native';
 
@@ -30,13 +30,13 @@ export const ProductInfo = styled.View`
   flex-direction: column;
 `;
 export const ProductTitle = styled.Text`
-  font-size: 14;
+  font-size: ${fonts.regular};
   font-weight: bold;
   margin-top: ${metrics.baseMargin / 2};
-  color: ${colors.darker};
+  color: ${colors.primary};
 `;
 export const ProductDescription = styled.Text`
-  font-size: 12;
+  font-size: ${fonts.small};
   color: ${colors.regular};
   margin-top: ${metrics.baseMargin / 2};
 `;
@@ -49,7 +49,7 @@ export const IconTime = styled(Icon)`
   color: ${colors.regular};
 `;
 export const EstimativeTime = styled.Text`
-  font-size: 10;
+  font-size: ${fonts.smaller};
   margin-left: ${metrics.baseMargin / 4};
   color: ${colors.regular};
 `;

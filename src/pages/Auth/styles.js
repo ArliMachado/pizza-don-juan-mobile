@@ -1,4 +1,4 @@
-import { colors, metrics } from '~/styles';
+import { colors, metrics, fonts } from '~/styles';
 
 import styled from 'styled-components/native';
 
@@ -35,7 +35,7 @@ export const Input = styled.TextInput.attrs({
   letter-spacing: 0;
   padding: 0 ${metrics.basePadding}px;
   height: 52px;
-  font-size: 16px;
+  font-size: ${fonts.medium};
   color: ${colors.darker};
   margin-top: ${metrics.baseMargin};
 `;
@@ -50,7 +50,7 @@ export const Button = styled.TouchableOpacity`
 `;
 export const Text = styled.Text`
   color: ${colors.white};
-  font-size: 18px;
+  font-size: ${fonts.big};
   font-weight: bold;
 `;
 

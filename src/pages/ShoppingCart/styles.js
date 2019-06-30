@@ -1,4 +1,4 @@
-import { colors, metrics } from '~/styles';
+import { colors, metrics, fonts } from '~/styles';
 
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -39,7 +39,7 @@ export const EmptyCartContent = styled.View`
   justify-content: center;
 `;
 export const EmptyCartMessage = styled.Text`
-  font-size: 28;
+  font-size: ${fonts.bigger};
   font-weight: bold;
   color: ${colors.regular};
 `;

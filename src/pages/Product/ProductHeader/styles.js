@@ -1,4 +1,4 @@
-import { colors, metrics } from '~/styles';
+import { colors, metrics, fonts } from '~/styles';
 
 import styled from 'styled-components/native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
@@ -15,7 +15,7 @@ export const Content = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-size: 18;
+  font-size: ${fonts.big};
   font-weight: bold;
   color: ${colors.white};
 `;

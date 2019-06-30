@@ -1,4 +1,4 @@
-import { colors, metrics } from '~/styles';
+import { colors, metrics, fonts } from '~/styles';
 
 import styled from 'styled-components/native';
 
@@ -15,19 +15,19 @@ export const Container = styled.View`
 `;
 
 export const OrderTitle = styled.Text`
-  font-size: 14;
+  font-size: ${fonts.regular};
   color: ${colors.primary};
   margin-top: ${metrics.baseMargin};
 `;
 
 export const OrderDate = styled.Text`
-  font-size: 14;
+  font-size: ${fonts.regular};
   color: ${colors.regular};
   margin-top: ${metrics.baseMargin / 2};
 `;
 
 export const OrderValue = styled.Text`
-  font-size: 16;
+  font-size: ${fonts.medium};
   font-weight: bold;
   color: ${colors.primary};
   margin-top: ${metrics.baseMargin / 2};

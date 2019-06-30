@@ -1,4 +1,4 @@
-import { colors, metrics } from '~/styles';
+import { colors, metrics, fonts } from '~/styles';
 
 import styled from 'styled-components/native';
 
@@ -25,11 +25,11 @@ export const InfoContent = styled.View`
   justify-content: center;
 `;
 export const Title = styled.Text`
-  font-size: 16;
+  font-size: ${fonts.medium};
   font-weight: bold;
   color: ${colors.darker};
 `;
 export const Price = styled.Text`
-  font-size: 14;
+  font-size: ${fonts.regular};
   color: ${colors.regular};
 `;

@@ -1,4 +1,4 @@
-import { colors, metrics } from '~/styles';
+import { colors, metrics, fonts } from '~/styles';
 
 import styled from 'styled-components/native';
 
@@ -30,16 +30,16 @@ export const ProductInfo = styled.View`
 `;
 
 export const ProductTitle = styled.Text`
-  font-size: 16;
+  font-size: ${fonts.medium};
   font-weight: bold;
   color: ${colors.dark};
 `;
 export const ProductSize = styled.Text`
-  font-size: 14;
+  font-size: ${fonts.regular};
   color: ${colors.regular};
 `;
 export const ProductPrice = styled.Text`
-  font-size: 18;
+  font-size: ${fonts.big};
   font-weight: bold;
   color: ${colors.darker};
 `;
@@ -52,6 +52,5 @@ export const ButtonContent = styled.View`
 
 export const Delete = styled(Icon)`
   color: ${colors.red};
-  /* background-color: ${colors.transparent}; */
   margin-right: ${metrics.baseMargin};
 `;
