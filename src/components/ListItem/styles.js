@@ -23,6 +23,7 @@ export const InfoContent = styled.View`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 `;
 export const Title = styled.Text`
   font-size: ${fonts.medium};

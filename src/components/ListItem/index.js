@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import { Image } from 'react-native';
 
 import {
-  Container, Image, InfoContent, Title, Price,
+  Container, InfoContent, Image, Title, Price,
 } from './styles';
 
 const ListItem = ({ title, uri, price }) => (
   <Container>
-    <Image source={{ uri }} />
+    <Image source={{ uri }} resizeMode="contain" />
     <InfoContent>
       <Title>{title}</Title>
       {price ? (
