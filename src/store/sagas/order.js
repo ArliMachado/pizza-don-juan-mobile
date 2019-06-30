@@ -18,10 +18,15 @@ export function* getAddress(action) {
 
 export function* createOrder() {
   try {
-    const { address, observation } = yield select(state => state.order);
+    const { address, observation, totalValue } = yield select(state => state.order);
     const { items } = yield select(state => state.shoppingCart);
 
-    yield call(api.post, '/orders', { observation, address, products: items });
+    yield call(api.post, '/orders', {
+      observation,
+      address,
+      products: items,
+      total_value: totalValue,
+    });
 
     yield put(ShoppingCartActions.cleanCart());
 

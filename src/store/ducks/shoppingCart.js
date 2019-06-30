@@ -43,8 +43,9 @@ export const Creators = {
     type: Types.REMOVE,
     payload: { item },
   }),
-  addToOrder: () => ({
+  addToOrder: data => ({
     type: Types.ADD_TO_ORDER,
+    payload: { data },
   }),
   cleanCart: () => ({
     type: Types.CLEAN,

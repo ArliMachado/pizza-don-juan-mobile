@@ -30,10 +30,10 @@ class Order extends Component {
         city: PropTypes.string,
       }),
       observation: PropTypes.string,
+      totalValue: PropTypes.number.isRequired,
     }).isRequired,
     cepRequest: PropTypes.func.isRequired,
     orderRequest: PropTypes.func.isRequired,
-    totalValue: PropTypes.number.isRequired,
     setObservation: PropTypes.func.isRequired,
     setStreet: PropTypes.func.isRequired,
     setNumber: PropTypes.func.isRequired,
@@ -66,7 +66,7 @@ class Order extends Component {
     const { cep } = this.state;
 
     const {
-      order, totalValue, setObservation, setStreet, setNumber, setCity,
+      order, setObservation, setStreet, setNumber, setCity,
     } = this.props;
 
     return (
@@ -74,7 +74,7 @@ class Order extends Component {
         <Header
           title="Realizar pedido"
           navigateTo={() => this.backToPage('ShoppingCart')}
-          totalValue={totalValue}
+          totalValue={order.totalValue}
         />
         <Content>
           <Observation
@@ -131,10 +131,6 @@ class Order extends Component {
 
 const mapStateToProps = state => ({
   order: state.order,
-  totalValue:
-    state.order.products.length > 0
-      ? state.order.products.map(product => product.price).reduce((prev, curr) => prev + curr)
-      : 0,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(OrderActions, dispatch);

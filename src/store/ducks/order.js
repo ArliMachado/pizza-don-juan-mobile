@@ -3,7 +3,7 @@
  */
 
 export const Types = {
-  SET_PRODUCTS: 'order/SET_PRODUCTS',
+  SET_ORDER: 'order/SET_ORDER',
   SET_OBSERVATION: 'order/SET_OBSERVATION',
   SET_STREET: 'order/SET_STREET',
   SET_NUMBER: 'order/SET_NUMBER',
@@ -21,6 +21,7 @@ export const Types = {
 
 const INITIAL_STATE = {
   products: [],
+  totalValue: 0,
   address: {},
   observation: '',
   loading: false,
@@ -28,8 +29,12 @@ const INITIAL_STATE = {
 
 export default function order(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case Types.SET_PRODUCTS:
-      return { ...state, products: action.payload.data };
+    case Types.SET_ORDER:
+      return {
+        ...state,
+        products: action.payload.data.products,
+        totalValue: action.payload.data.totalValue,
+      };
     case Types.SET_OBSERVATION:
       return { ...state, observation: action.payload.data };
     case Types.SET_STREET:
@@ -56,8 +61,8 @@ export default function order(state = INITIAL_STATE, action) {
  */
 
 export const Creators = {
-  setProducts: data => ({
-    type: Types.SET_PRODUCTS,
+  setOrder: data => ({
+    type: Types.SET_ORDER,
     payload: { data },
   }),
   setObservation: data => ({

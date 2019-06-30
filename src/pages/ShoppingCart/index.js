@@ -59,14 +59,13 @@ class ShoppingCart extends Component {
     );
   };
 
-  addItemsToOrder = () => {
-    console.tron.log('eee');
-    const { addToOrder } = this.props;
-    addToOrder();
+  handleAddToOrder = () => {
+    const { addToOrder, totalValue } = this.props;
+    addToOrder(totalValue);
   };
 
   render() {
-    const { totalValue, hasItems, addToOrder } = this.props;
+    const { totalValue, hasItems } = this.props;
     const BACK_TO_PAGE = hasItems ? 'ProductSizes' : 'Product';
 
     return (
@@ -93,7 +92,7 @@ class ShoppingCart extends Component {
               <CartIcon name="cart-plus" size={20} />
             </TouchableOpacity>
           </IconContent>
-          {hasItems ? <Button text="REALIZAR PEDIDO" onpress={() => addToOrder()} /> : null}
+          {hasItems ? <Button text="REALIZAR PEDIDO" onpress={this.handleAddToOrder} /> : null}
         </ButtonContent>
       </Container>
     );
