@@ -11,7 +11,7 @@ export function* login(action) {
     const { user } = action.payload;
 
     const { data } = yield call(api.post, '/sessions', user);
-    OnSignIn(data.token);
+    OnSignIn(data.token.token);
 
     yield put(AuthActions.authSuccess());
 
