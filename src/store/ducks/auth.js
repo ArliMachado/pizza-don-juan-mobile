@@ -12,7 +12,7 @@ export const Types = {
  * Reducers
  */
 
-const INITIAL_STATE = { loading: false };
+const INITIAL_STATE = { loading: false, error: false, message: null };
 
 export default function login(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -23,7 +23,12 @@ export default function login(state = INITIAL_STATE, action) {
       return { ...state, loading: false };
 
     case Types.FAILURE:
-      return { ...state, loading: false };
+      return {
+        ...state,
+        loading: false,
+        error: true,
+        message: action.payload.data,
+      };
 
     default:
       return state;
@@ -42,7 +47,8 @@ export const Creators = {
   authSuccess: () => ({
     type: Types.SUCCESS,
   }),
-  authFailure: () => ({
+  authFailure: data => ({
     type: Types.FAILURE,
+    payload: { data },
   }),
 };

@@ -16,7 +16,7 @@ export function* login(action) {
     yield put(AuthActions.authSuccess());
 
     navigate('Product');
-  } catch (err) {
-    yield put(AuthActions.authFailure());
+  } catch ({ response: { data } }) {
+    yield put(AuthActions.authFailure(data[0].message));
   }
 }

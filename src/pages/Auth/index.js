@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 import { Creators as AuthActions } from '~/store/ducks/auth';
 
 import {
@@ -14,6 +15,7 @@ import {
   Text,
   LinkText,
   Loading,
+  MessageError,
 } from './styles';
 import { Input } from '~/styles/globalStyles';
 import BackgroundLogin from '~/assets/background_login.png';
@@ -27,6 +29,8 @@ class Auth extends Component {
     authRequest: PropTypes.func.isRequired,
     auth: PropTypes.shape({
       loading: PropTypes.bool,
+      error: PropTypes.bool,
+      message: PropTypes.string,
     }).isRequired,
   };
 
@@ -47,7 +51,9 @@ class Auth extends Component {
   };
 
   render() {
-    const { auth } = this.props;
+    const {
+      auth: { loading, error, message },
+    } = this.props;
     const { email, password } = this.state;
 
     return (
@@ -73,9 +79,9 @@ class Auth extends Component {
               placeholder="Sua senha"
               secureTextEntry
             />
-            <Button onPress={this.signedIn}>
-              {auth.loading ? <Loading /> : <Text>Entrar</Text>}
-            </Button>
+            {/* <MessageError>Teste</MessageError> */}
+            {error && <MessageError>{message}</MessageError>}
+            <Button onPress={this.signedIn}>{loading ? <Loading /> : <Text>Entrar</Text>}</Button>
             <LinkText onPress={this.goToRegister}>
               <Text>Criar conta gratuita</Text>
             </LinkText>
