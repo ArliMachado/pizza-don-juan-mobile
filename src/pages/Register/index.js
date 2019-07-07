@@ -13,6 +13,7 @@ import {
   Button,
   Text,
   LinkText,
+  MessageError,
 } from './styles';
 import { Input } from '~/styles/globalStyles';
 import BackgroundLogin from '~/assets/background_login.png';
@@ -53,6 +54,7 @@ class Register extends Component {
   };
 
   render() {
+    const { error, message } = this.props;
     const {
       username, email, password, passwordConfirm,
     } = this.state;
@@ -95,6 +97,7 @@ class Register extends Component {
               placeholder="Confirme a senha"
               secureTextEntry
             />
+            {error && <MessageError>{message}</MessageError>}
             <Button onPress={this.register}>
               <Text>Criar Conta</Text>
             </Button>

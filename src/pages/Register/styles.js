@@ -46,3 +46,8 @@ export const LinkText = styled.TouchableOpacity`
   justify-content: center;
   margin-top: ${metrics.baseMargin * 2};
 `;
+export const MessageError = styled.Text`
+  color: ${colors.white};
+  text-align: center;
+  margin-top: ${metrics.baseMargin}px;
+`;

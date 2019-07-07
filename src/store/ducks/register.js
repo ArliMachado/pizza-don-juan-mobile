@@ -16,6 +16,7 @@ const INITIAL_STATE = {
   user: {},
   loading: false,
   error: false,
+  message: null,
 };
 
 export default function register(state = INITIAL_STATE, action) {
@@ -24,9 +25,13 @@ export default function register(state = INITIAL_STATE, action) {
       return { ...state, loading: true };
     case Types.SUCCESS:
       return { ...state, loading: false };
-
     case Types.FAILURE:
-      return { ...state, loading: false, error: action.payload.error };
+      return {
+        ...state,
+        loading: false,
+        error: true,
+        message: action.payload.data,
+      };
     default:
       return state;
   }
@@ -44,8 +49,8 @@ export const Creators = {
   registerSuccess: () => ({
     type: Types.SUCCESS,
   }),
-  registerFailure: error => ({
+  registerFailure: data => ({
     type: Types.FAILURE,
-    payload: { error },
+    payload: { data },
   }),
 };

@@ -14,7 +14,7 @@ export function* addUser(action) {
     yield put(RegisterAction.registerSuccess());
 
     navigate('SignIn');
-  } catch (err) {
-    console.tron.log(err);
+  } catch ({ response: { data } }) {
+    yield put(RegisterAction.registerFailure(data[0].message));
   }
 }
