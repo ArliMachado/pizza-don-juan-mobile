@@ -12,7 +12,7 @@ export function* getAddress(action) {
     const { street, city, cep } = yield call(() => cepApi(action.payload.cep));
     yield put(OrderActions.cepResponse({ street, city, cep }));
   } catch (err) {
-    // yield put(OrderActions.productFailure());
+    yield put(OrderActions.orderFailure('CEP não encontrado'));
   }
 }
 
@@ -34,6 +34,6 @@ export function* createOrder() {
 
     navigate('Product');
   } catch (err) {
-    console.tron.log(err);
+    yield put(OrderActions.orderFailure('Houve um erro ao tentar finalizar o pedido'));
   }
 }

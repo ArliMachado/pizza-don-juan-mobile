@@ -1,4 +1,4 @@
-import { metrics } from '~/styles';
+import { metrics, colors } from '~/styles';
 
 import styled from 'styled-components/native';
 import Button from '~/components/Button';
@@ -36,4 +36,10 @@ export const ButtonContent = styled.View`
 
 export const FinishButton = styled(Button)`
   width: ${metrics.screenWidth};
+`;
+
+export const MessageError = styled.Text`
+  color: ${colors.red};
+  text-align: center;
+  margin-top: ${metrics.baseMargin}px;
 `;

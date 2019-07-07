@@ -25,6 +25,8 @@ const INITIAL_STATE = {
   address: {},
   observation: '',
   loading: false,
+  error: false,
+  message: null,
 };
 
 export default function order(state = INITIAL_STATE, action) {
@@ -44,13 +46,25 @@ export default function order(state = INITIAL_STATE, action) {
     case Types.SET_CITY:
       return { ...state, address: { ...state.address, city: action.payload.data } };
     case Types.CEP_REQUEST:
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: false };
     case Types.CEP_RESPONSE:
-      return { ...state, loading: false, address: action.payload.data };
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        address: action.payload.data,
+      };
     case Types.REQUEST:
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: false };
     case Types.RESPONSE:
       return INITIAL_STATE;
+    case Types.FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: true,
+        message: action.payload.data,
+      };
     default:
       return state;
   }
@@ -94,5 +108,9 @@ export const Creators = {
   }),
   orderResponse: () => ({
     type: Types.RESPONSE,
+  }),
+  orderFailure: data => ({
+    type: Types.FAILURE,
+    payload: { data },
   }),
 };

@@ -15,6 +15,7 @@ import {
   Number,
   ButtonContent,
   FinishButton,
+  MessageError,
 } from './styles';
 
 import { Input } from '~/styles/globalStyles';
@@ -120,6 +121,7 @@ class Order extends Component {
             value={order.address.city}
             onChangeText={text => setCity(text)}
           />
+          {order.error && <MessageError>{order.message}</MessageError>}
           <ButtonContent>
             <FinishButton text="FINALIZAR" onpress={this.handleOrderCreate} />
           </ButtonContent>
