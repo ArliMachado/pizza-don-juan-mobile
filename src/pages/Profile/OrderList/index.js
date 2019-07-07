@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import 'moment/locale/pt-br';
 
 import {
@@ -23,6 +24,14 @@ Pedido #
       </OrderValue>
     </Container>
   );
+};
+
+OrderList.propTypes = {
+  data: PropTypes.shape({
+    created_at: PropTypes.string,
+    id: PropTypes.number,
+    total_value: PropTypes.string,
+  }).isRequired,
 };
 
 export default OrderList;

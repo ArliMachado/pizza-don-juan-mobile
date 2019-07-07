@@ -53,7 +53,8 @@ export const Loading = styled.ActivityIndicator.attrs({
 })``;
 
 export const MessageError = styled.Text`
-  color: ${colors.white};
+  color: ${colors.lighter};
   text-align: center;
+  font-weight: bold;
   margin-top: ${metrics.baseMargin}px;
 `;

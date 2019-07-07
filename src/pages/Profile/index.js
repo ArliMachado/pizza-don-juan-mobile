@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -13,6 +14,21 @@ import ListOrders from './OrderList';
 import { EmptyProfileContent, EmptyProfileMessage } from './styles';
 
 class Profile extends Component {
+  static propTypes = {
+    requestOrders: PropTypes.func.isRequired,
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func,
+    }).isRequired,
+    profile: PropTypes.shape({
+      data: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number,
+        }),
+      ).isRequired,
+    }).isRequired,
+    hasOrders: PropTypes.bool.isRequired,
+  };
+
   componentWillMount() {
     const { requestOrders } = this.props;
     requestOrders();

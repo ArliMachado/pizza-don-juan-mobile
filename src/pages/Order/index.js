@@ -7,6 +7,7 @@ import { Creators as OrderActions } from '~/store/ducks/order';
 
 import Container from '~/components/Container';
 import Header from '~/components/Header';
+import Spinner from 'react-native-loading-spinner-overlay';
 import {
   Observation,
   Content,
@@ -30,6 +31,8 @@ class Order extends Component {
         street: PropTypes.string,
         number: PropTypes.string,
         city: PropTypes.string,
+        error: PropTypes.bool,
+        message: PropTypes.string,
       }),
       observation: PropTypes.string,
       totalValue: PropTypes.number.isRequired,
@@ -125,6 +128,11 @@ class Order extends Component {
           <ButtonContent>
             <FinishButton text="FINALIZAR" onpress={this.handleOrderCreate} />
           </ButtonContent>
+          <Spinner
+            visible={order.loading}
+            textContent="Carregando..."
+            textStyle={{ color: '#FFF' }}
+          />
         </Content>
       </Container>
     );

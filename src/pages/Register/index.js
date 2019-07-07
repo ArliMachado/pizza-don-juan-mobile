@@ -21,6 +21,10 @@ import ImageLogo from '~/assets/logo.png';
 
 class Register extends Component {
   static propTypes = {
+    register: PropTypes.shape({
+      error: PropTypes.bool,
+      message: PropTypes.string,
+    }).isRequired,
     navigation: PropTypes.shape({
       navigate: PropTypes.func,
     }).isRequired,
@@ -54,7 +58,7 @@ class Register extends Component {
   };
 
   render() {
-    const { error, message } = this.props;
+    const { register } = this.props;
     const {
       username, email, password, passwordConfirm,
     } = this.state;
@@ -97,7 +101,7 @@ class Register extends Component {
               placeholder="Confirme a senha"
               secureTextEntry
             />
-            {error && <MessageError>{message}</MessageError>}
+            {register.error && <MessageError>{register.message}</MessageError>}
             <Button onPress={this.register}>
               <Text>Criar Conta</Text>
             </Button>

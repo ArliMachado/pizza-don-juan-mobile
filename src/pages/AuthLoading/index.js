@@ -7,7 +7,6 @@ import { Container } from './styles';
 export default class AuthLoadingScreen extends Component {
   constructor(props) {
     super(props);
-    // onSignOut();
     this.verifyToken();
   }
 

@@ -20,7 +20,7 @@ const INITIAL_STATE = {
 };
 
 export default function register(state = INITIAL_STATE, action) {
-  switch (action.Types) {
+  switch (action.type) {
     case Types.REQUEST:
       return { ...state, loading: true };
     case Types.SUCCESS:

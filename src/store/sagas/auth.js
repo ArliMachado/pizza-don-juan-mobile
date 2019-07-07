@@ -10,7 +10,7 @@ export function* login(action) {
   try {
     const { user } = action.payload;
 
-    const { data } = yield call(api.post, '/sessions', user);
+    const { data } = yield call(api.post, '/sessions?origin=MOBILE', user);
     OnSignIn(data.token.token);
 
     yield put(AuthActions.authSuccess());
